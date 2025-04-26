@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet-routing-machine";
-import pin from "../assets/image/pin.gif"
+import pin from "/image/pin.gif"
 
 const RoutingMachine = ({ from, to }) => {
   const map = useMap();
