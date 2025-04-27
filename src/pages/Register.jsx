@@ -18,11 +18,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     const { name, email, password } = data;
     try {
-      const res = await Axios.post("/users/register", {
-        name,
-        email,
-        password,
-      });
+      const res = await Axios.post("/users/register", { name, email, password });
       setUser(res.data.user);
       navigate("/otp");
     } catch (error) {
@@ -30,7 +26,7 @@ const Register = () => {
     }
   };
 
-  const handleGoogleRegisterSuccess = async (credentialResponse) => {
+  const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const res = await Axios.post("/google-auth/verify", {
         token: credentialResponse.credential,
@@ -38,14 +34,14 @@ const Register = () => {
       setUser(res.data);
       navigate("/otp");
     } catch (err) {
-      setServerError("Google registration failed. Please try again.");
-      console.error("Google register failed:", err);
+      setServerError("Google signup failed. Please try again.");
+      console.error("Google signup failed:", err);
     }
   };
 
-  const handleGoogleRegisterError = () => {
-    setServerError("Google registration failed. Please try again.");
-    console.log("Google Registration Failed");
+  const handleGoogleError = () => {
+    setServerError("Google signup failed. Please try again.");
+    console.log("Google signup Failed");
   };
 
   return (
@@ -57,15 +53,14 @@ const Register = () => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-[98%] py-5 flex flex-col gap-y-5 items-center">
+          className="w-[98%] py-5 flex flex-col gap-y-5 items-center"
+        >
+          {/* Name input */}
           <div className="w-[90%]">
             <input
               {...register("name", {
                 required: "Name is required",
-                minLength: {
-                  value: 6,
-                  message: "Name must be at least 6 characters",
-                },
+                minLength: { value: 6, message: "Name must be at least 6 characters" },
               })}
               type="text"
               className="bg-zinc-900 border border-zinc-900 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
@@ -76,82 +71,82 @@ const Register = () => {
             )}
           </div>
 
+          {/* Email input */}
           <div className="w-[90%]">
             <input
               {...register("email", {
                 required: "Email is required",
-                pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: "Invalid email address",
-                },
+                pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" },
               })}
               type="email"
               className="bg-zinc-900 border border-zinc-900 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
               placeholder="Email...."
             />
             {errors.email && (
-              <p className="text-red-500 font-Satoshi">
-                {errors.email.message}
-              </p>
+              <p className="text-red-500 font-Satoshi">{errors.email.message}</p>
             )}
           </div>
 
+          {/* Password input */}
           <div className="w-[90%]">
             <input
               {...register("password", {
                 required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "Password must be at least 6 characters",
-                },
+                minLength: { value: 6, message: "Password must be at least 6 characters" },
               })}
               type="password"
               className="bg-zinc-900 border border-zinc-900 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
               placeholder="Password...."
             />
             {errors.password && (
-              <p className="text-red-500 font-Satoshi">
-                {errors.password.message}
-              </p>
+              <p className="text-red-500 font-Satoshi">{errors.password.message}</p>
             )}
           </div>
 
+          {/* Submit button */}
+          <button
+            type="submit"
+            className="bg-sky-600 text-2xl py-2 w-[90%] rounded-md mt-5"
+          >
+            Confirm
+          </button>
+
+          {/* Server error */}
           {serverError && (
             <p className="text-red-500 text-center">{serverError}</p>
           )}
-
-          <button
-            type="submit"
-            className="bg-sky-600 text-2xl py-2 w-[90%] rounded-md mt-5">
-            Register
-          </button>
         </form>
 
+        {/* Divider */}
         <div className="w-[90%] flex gap-x-2 items-center">
           <div className="h-[1.5px] w-full bg-sky-400"></div>
           <h1 className="font-Satoshi text-2xl">Or</h1>
           <div className="h-[1.5px] w-full bg-sky-400"></div>
         </div>
 
-        <div className="flex w-[90%] flex-col items-center gap-y-3">
-          <p className="text-lg">Register with</p>
+        {/* Google Login */}
+        <div className="flex flex-col items-center gap-4">
+          <h1 className="font-Helvetica text-2xl lg:text-xl">Register with</h1>
           <GoogleLogin
-            onSuccess={handleGoogleRegisterSuccess}
-            onError={handleGoogleRegisterError}
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleError}
           />
         </div>
 
+        {/* Already have an account */}
         <div className="flex w-[90%] gap-x-3 lg:gap-x-10 justify-center">
           <h1 className="font-Helvetica text-lg lg:text-xl">
             Already have an account?
           </h1>
           <button
             onClick={() => navigate("/login")}
-            className="font-Satoshi text-xl text-sky-500 cursor-pointer">
+            className="font-Satoshi text-xl text-sky-500 cursor-pointer"
+          >
             Login
           </button>
         </div>
 
+        {/* Terms and privacy */}
         <div>
           <p className="text-center font-Satoshi text-lg">
             By signing up, you agree to our{" "}
