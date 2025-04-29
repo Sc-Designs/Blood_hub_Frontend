@@ -108,12 +108,12 @@ const Profile = () => {
             <Scales
               text={"Donate"}
               count={userDets.Donate.length}
-              para={"Time"}
+              para={userDets.Donate.length > 1 ? "Times": "Time"}
             />
             <Scales
               text={"Blood Requests"}
               count={userDets.bloodRequest.length}
-              para={"Time"}
+              para={userDets.bloodRequest.length > 1 ? "Times" : "Time"}
             />
             <div className="flex flex-col items-start gap-y-3">
               <h3 className="text-4xl font-Helvetica">Verified</h3>

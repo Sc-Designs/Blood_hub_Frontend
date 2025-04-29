@@ -90,21 +90,21 @@ const Admin = () => {
             <Scales
               text={"User Count"}
               count={counts.UserCount}
-              para={"User"}
+              para={counts.UserCount > 1 ? "Users" : "User"}
             />
           )}
           {counts && (
             <Scales
               text={"Request Count"}
               count={counts.requestCount}
-              para={"Time"}
+              para={counts.requestCount > 1 ? "Times": "Time"}
             />
           )}
           {counts && (
             <Scales
               text={"Ticket Raises"}
               count={counts.ticketCounst}
-              para={"Time"}
+              para={counts.ticketCounst > 1 ? "Times":"Time"}
             />
           )}
           <div className="flex flex-col gap-y-4 lg:flex-row lg:gap-x-4">
