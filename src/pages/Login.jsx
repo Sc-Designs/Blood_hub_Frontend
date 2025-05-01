@@ -50,7 +50,7 @@ const Login = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 w-[90%] lg:w-[40%] border-2 border-zinc-800 shadow-[0px_0px_30px_rgba(255,255,255,0.25)] px-5 py-10 rounded-lg">
-        <h1 className="text-3xl font-Helvetica text-center uppercase">
+        <h1 className="text-3xl font-Poppins text-center uppercase">
           Login Now
         </h1>
 
@@ -63,13 +63,13 @@ const Login = () => {
                 message: "Invalid email address",
               },
             })}
-            className="font-Satoshi mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-900 bg-zinc-900 p-2 rounded w-full"
+            className="font-Roboto mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-900 bg-zinc-900 p-2 rounded w-full"
             placeholder="Enter your email..."
             type="email"
             id="email"
           />
           {errors.email && (
-            <p className="text-red-500 font-Satoshi">{errors.email.message}</p>
+            <p className="text-red-500 font-Roboto">{errors.email.message}</p>
           )}
         </div>
 
@@ -82,13 +82,13 @@ const Login = () => {
                 message: "Password must be at least 6 characters",
               },
             })}
-            className="font-Satoshi mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-900 bg-zinc-900 p-2 rounded w-full"
+            className="font-Roboto mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-900 bg-zinc-900 p-2 rounded w-full"
             placeholder="Enter your password..."
             type="password"
             id="password"
           />
           {errors.password && (
-            <p className="text-red-500 font-Satoshi">
+            <p className="text-red-500 font-Roboto">
               {errors.password.message}
             </p>
           )}
@@ -105,7 +105,7 @@ const Login = () => {
         </button>
 
         <div>
-          <p className="text-center font-Satoshi text-lg">
+          <p className="text-center font-Roboto text-lg">
             Don't have an account?
             <span
               onClick={() => navigate("/register")}
@@ -131,7 +131,7 @@ const Login = () => {
         </div>
 
         <div>
-          <p className="text-center font-Satoshi text-lg flex flex-col gap-y-2">
+          <p className="text-center font-Roboto text-lg flex flex-col gap-y-2">
             Don't remember your password?
             <span className="text-sky-500 cursor-pointer">
               {" "}

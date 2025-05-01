@@ -38,10 +38,10 @@ const Form = ({ fn }) => {
               })}
               type="number"
               placeholder="Enter Your Number"
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.number && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.number.message}
               </p>
             )}
@@ -59,10 +59,10 @@ const Form = ({ fn }) => {
                 },
               })}
               placeholder="Enter Emergency Contact"
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.emargencyNumber && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.emargencyNumber.message}
               </p>
             )}
@@ -83,10 +83,10 @@ const Form = ({ fn }) => {
                   return true;
                 },
               })}
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.dob && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.dob.message}
               </p>
             )}
@@ -104,10 +104,10 @@ const Form = ({ fn }) => {
                 },
               })}
               placeholder="Enter Your Weight (kg)"
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.weight && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.weight.message}
               </p>
             )}
@@ -127,10 +127,10 @@ const Form = ({ fn }) => {
                 },
               })}
               placeholder="Enter Your Height (cm)"
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.height && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.height.message}
               </p>
             )}
@@ -148,10 +148,10 @@ const Form = ({ fn }) => {
                 },
               })}
               placeholder="Enter Your Address"
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.address && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.address.message}
               </p>
             )}
@@ -161,14 +161,14 @@ const Form = ({ fn }) => {
                 validate: (value) =>
                   value !== "default" || "Please select a valid Gender",
               })}
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none">
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none">
               <option value="default">Select The Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Transgender">Transgender</option>
             </select>
             {errors.gender && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.gender.message}
               </p>
             )}
@@ -178,7 +178,7 @@ const Form = ({ fn }) => {
                 validate: (value) =>
                   value !== "default" || "Please select a valid blood group",
               })}
-              className="bg-zinc-800 w-full text-white text-xl font-Satoshi py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none">
+              className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none">
               <option value="default">Select Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
@@ -190,7 +190,7 @@ const Form = ({ fn }) => {
               <option value="O-">O-</option>
             </select>
             {errors.bloodGroup && (
-              <p className="text-red-500 text-xl font-Satoshi">
+              <p className="text-red-500 text-xl font-Roboto">
                 {errors.bloodGroup.message}
               </p>
             )}
@@ -199,7 +199,7 @@ const Form = ({ fn }) => {
         <input
           type="submit"
           value="Confirm"
-          className="bg-sky-500 w-full py-2 rounded-lg font-Helvetica text-xl"
+          className="bg-sky-500 w-full py-2 rounded-lg font-Poppins text-xl"
         />
       </form>
     </div>

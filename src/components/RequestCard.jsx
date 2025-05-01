@@ -12,19 +12,19 @@ const RequestCard = ({data ,user}) => {
             className="w-full h-full object-cover"
           />
         </div>
-        <h1 className="font-Helvetica text-2xl">Name: {user.name}</h1>
-        <h1 className="font-Satoshi text-xl text-gray-500">id : {user._id}</h1>
+        <h1 className="font-Poppins text-2xl">Name: {user.name}</h1>
+        <h1 className="font-Roboto text-xl text-gray-500">id : {user._id}</h1>
       </div>
-      <h4 className="font-Satoshi text-2xl">RQ : {data.bloodType}</h4>
-      <h4 className="font-Satoshi text-2xl">Date : {data.date}</h4>
-      <h4 className="font-Satoshi text-2xl">Time : {data.time}</h4>
+      <h4 className="font-Roboto text-2xl">RQ : {data.bloodType}</h4>
+      <h4 className="font-Roboto text-2xl">Date : {data.date}</h4>
+      <h4 className="font-Roboto text-2xl">Time : {data.time}</h4>
       {data.status === "pending" ? (
-        <button className="bg-orange-400 shadow-[0_0px_70px_rgb(255,137,4,0.7)] py-4 font-Helvetica text-2xl flex gap-x-2 items-center justify-center">
+        <button className="bg-orange-400 shadow-[0_0px_70px_rgb(255,137,4,0.7)] py-4 font-Poppins text-2xl flex gap-x-2 items-center justify-center">
           <LiaUserClockSolid />
           Pending
         </button>
       ) : (
-        <button className="bg-green-400 shadow-[0_0px_70px_rgba(5,223,114,0.7)] py-4 font-Helvetica text-2xl flex gap-x-2 items-center justify-center">
+        <button className="bg-green-400 shadow-[0_0px_70px_rgba(5,223,114,0.7)] py-4 font-Poppins text-2xl flex gap-x-2 items-center justify-center">
           <PiConfettiBold />
           Accepted
         </button>

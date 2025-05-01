@@ -81,16 +81,16 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col items-center">
-              <h3 className="text-3xl font-Satoshi">{userDets.name}</h3>
-              <p className="text-gray-500 font-Helvetica text-xl">
+              <h3 className="text-3xl font-Roboto">{userDets.name}</h3>
+              <p className="text-gray-500 font-Poppins text-xl">
                 {userDets.email}
               </p>
             </div>
           </div>
           <div className="border-2 border-gray-500 rounded-lg p-5 flex flex-col gap-y-1 ml-5 mr-5 lg:w-1/3">
-            <h3 className="text-3xl font-Helvetica">Welcome Message to</h3>
-            <h3 className="text-3xl font-Helvetica">{userDets.name}</h3>
-            <p className="font-Satoshi text-2xl pt-5">
+            <h3 className="text-3xl font-Poppins">Welcome Message to</h3>
+            <h3 className="text-3xl font-Poppins">{userDets.name}</h3>
+            <p className="font-Roboto text-2xl pt-5">
               Welcome to{" "}
               <b>
                 <i>Blood_Hub</i>
@@ -103,7 +103,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="flex flex-col gap-y-5 gap-x-10 items-start mt-10 mb-2 border-2 border-gray-500 rounded-lg p-5 mx-5">
-          <h1 className="font-Helvetica text-4xl">Your Streaks Info</h1>
+          <h1 className="font-Poppins text-4xl">Your Streaks Info</h1>
           <div className="flex flex-col gap-y-5 lg:flex-row lg:justify-between lg:w-full lg:px-4">
             <Scales
               text={"Donate"}
@@ -116,17 +116,17 @@ const Profile = () => {
               para={userDets.bloodRequest.length > 1 ? "Times" : "Time"}
             />
             <div className="flex flex-col items-start gap-y-3">
-              <h3 className="text-4xl font-Helvetica">Verified</h3>
+              <h3 className="text-4xl font-Poppins">Verified</h3>
               {userDets.verified && (
-                <p className="text-5xl font-Helvetica flex gap-x-2 ">
+                <p className="text-5xl font-Poppins flex gap-x-2 ">
                   <MdVerified className="text-sky-400/80" />
-                  <span className="font-Satoshi text-4xl"> Yes</span>
+                  <span className="font-Roboto text-4xl"> Yes</span>
                 </p>
               )}
             </div>
             <div className="flex flex-col items-start gap-y-3">
-              <h3 className="text-4xl font-Helvetica">Blood Group</h3>
-              <p className="text-5xl font-Helvetica flex gap-x-2 text-red-400/80">
+              <h3 className="text-4xl font-Poppins">Blood Group</h3>
+              <p className="text-5xl font-Poppins flex gap-x-2 text-red-400/80">
                 {userDets.bloodgroup}
               </p>
             </div>
@@ -137,7 +137,7 @@ const Profile = () => {
         </div>
         <div className="px-5 py-2">
           <div className="border-2 border-gray-500 rounded-lg p-5 flex flex-col gap-y-5">
-            <h1 className="font-Helvetica text-4xl">Your All Request</h1>
+            <h1 className="font-Poppins text-4xl">Your All Request</h1>
             <div
               id="scroller"
               className={`min-h-10 max-h-96 w-full ${
@@ -169,7 +169,7 @@ const Profile = () => {
         </div>
         <div className="px-5 py-2">
           <div className="border-2 border-gray-500 rounded-lg p-5 flex flex-col gap-y-5">
-            <h1 className="font-Helvetica text-4xl">Your All Donation</h1>
+            <h1 className="font-Poppins text-4xl">Your All Donation</h1>
             <div
               id="scroller"
               className={`min-h-10 max-h-96 w-full ${

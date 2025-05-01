@@ -20,20 +20,20 @@ const UserCard = ({data}) => {
           />
         </div>
         <div className="flex flex-col items-center">
-          <h1 className="text-xl font-Satoshi font-semibold">{data.name}</h1>
-          <h3 className="text-xs font-Helvetica opacity-50">{data.email}</h3>
+          <h1 className="text-xl font-Roboto font-semibold">{data.name}</h1>
+          <h3 className="text-xs font-Poppins opacity-50">{data.email}</h3>
         </div>
       </div>
       {data.block === true ? (
           <button 
           onClick={()=>blockHandeler(data._id)}
-          className="bg-linear-to-b rounded-md shadow-[0px_15px_30px_rgba(0,208,255,0.8)] from-10% from-transparent to-sky-400 text-2xl py-2 font-Satoshi cursor-pointer">
+          className="bg-linear-to-b rounded-md shadow-[0px_15px_30px_rgba(0,208,255,0.8)] from-10% from-transparent to-sky-400 text-2xl py-2 font-Roboto cursor-pointer">
           UnBlock User
           </button> 
           ): (
             <button
             onClick={() => blockHandeler(data._id)}
-            className="bg-linear-to-b rounded-md shadow-[0px_15px_30px_rgba(255,0,0,0.8)] from-10% from-transparent to-red-400 text-2xl py-2 font-Satoshi cursor-pointer">
+            className="bg-linear-to-b rounded-md shadow-[0px_15px_30px_rgba(255,0,0,0.8)] from-10% from-transparent to-red-400 text-2xl py-2 font-Roboto cursor-pointer">
             Block User
             </button>
           )}

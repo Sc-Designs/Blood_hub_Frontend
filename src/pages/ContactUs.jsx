@@ -11,7 +11,6 @@ const ContactUs = () => {
       formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
-      console.log(data);
       navigate("/users/profile")
     };
   return (
@@ -31,12 +30,12 @@ const ContactUs = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-4 w-[90%] lg:w-[40%]">
           <div>
-            <label className="font-Helvetica text-xl" htmlFor="name">
+            <label className="font-Poppins text-xl" htmlFor="name">
               Name:
             </label>
             <input
               {...register("name", { required: "Name is required" })}
-              className="font-Satoshi mt-2 outline-none border p-2 rounded w-full "
+              className="font-Roboto mt-2 outline-none border p-2 rounded w-full "
               placeholder="Enter your name..."
               type="text"
               id="name"
@@ -47,7 +46,7 @@ const ContactUs = () => {
           </div>
 
           <div>
-            <label className="font-Helvetica text-xl" htmlFor="email">
+            <label className="font-Poppins text-xl" htmlFor="email">
               Email:
             </label>
             <input
@@ -61,7 +60,7 @@ const ContactUs = () => {
                   message: "Invalid email address",
                 },
               })}
-              className="font-Satoshi mt-2 border p-2 rounded w-full outline-none"
+              className="font-Roboto mt-2 border p-2 rounded w-full outline-none"
             />
             {errors.email && (
               <p className="text-red-500">{errors.email.message}</p>
@@ -69,13 +68,13 @@ const ContactUs = () => {
           </div>
 
           <div>
-            <label className="font-Helvetica text-xl" htmlFor="message">
+            <label className="font-Poppins text-xl" htmlFor="message">
               Message:{" "}
             </label>
             <textarea
               name=""
               id="message"
-              className="font-Satoshi border p-2 mt-2 rounded w-full outline-none h-50"
+              className="font-Roboto border p-2 mt-2 rounded w-full outline-none h-50"
               placeholder="Enter your message..."
               {...register("message", {
                 required: "Message is required",

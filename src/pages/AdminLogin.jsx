@@ -31,11 +31,11 @@ const AdminLogin = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 w-[90%] lg:w-[40%] border-2 px-5 py-10 rounded-lg">
-        <h1 className="text-3xl font-Helvetica text-center uppercase">Admin Login</h1>
+        <h1 className="text-3xl font-Poppins text-center uppercase">Admin Login</h1>
 
         {/* Email Field */}
         <div>
-          <label className="font-Helvetica text-xl" htmlFor="email">
+          <label className="font-Poppins text-xl" htmlFor="email">
             Email:
           </label>
           <input
@@ -46,19 +46,19 @@ const AdminLogin = () => {
                 message: "Invalid email address",
               },
             })}
-            className="font-Satoshi mt-2 outline-none border p-2 rounded w-full"
+            className="font-Roboto mt-2 outline-none border p-2 rounded w-full"
             placeholder="Enter your email..."
             type="email"
             id="email"
           />
           {errors.email && (
-            <p className="text-red-500 font-Satoshi">{errors.email.message}</p>
+            <p className="text-red-500 font-Roboto">{errors.email.message}</p>
           )}
         </div>
 
         {/* Password Field */}
         <div>
-          <label className="font-Helvetica text-xl" htmlFor="password">
+          <label className="font-Poppins text-xl" htmlFor="password">
             Password:
           </label>
           <input
@@ -69,13 +69,13 @@ const AdminLogin = () => {
                 message: "Password must be at least 6 characters",
               },
             })}
-            className="font-Satoshi mt-2 outline-none border p-2 rounded w-full"
+            className="font-Roboto mt-2 outline-none border p-2 rounded w-full"
             placeholder="Enter your password..."
             type="password"
             id="password"
           />
           {errors.password && (
-            <p className="text-red-500 font-Satoshi">
+            <p className="text-red-500 font-Roboto">
               {errors.password.message}
             </p>
           )}
@@ -107,7 +107,7 @@ const AdminLogin = () => {
         </div>
 
         <div>
-          <p className="text-center font-Satoshi text-lg flex flex-col gap-y-2">
+          <p className="text-center font-Roboto text-lg flex flex-col gap-y-2">
             Don't remember your password?
             <span className="text-sky-500 cursor-pointer">
               {" "}

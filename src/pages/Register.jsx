@@ -47,7 +47,7 @@ const Register = () => {
   return (
     <div className="w-full min-h-screen text-white bg-black flex justify-center items-center">
       <div className="border-2 border-zinc-800 flex flex-col gap-y-5 items-center w-[90%] lg:w-[40%] shadow-[0px_0px_30px_rgba(255,255,255,0.25)] rounded-md py-10 lg:py-5 px-5">
-        <h1 className="font-Helvetica text-xl uppercase">
+        <h1 className="font-Poppins text-xl uppercase">
           Register Your Self Today
         </h1>
 
@@ -67,7 +67,7 @@ const Register = () => {
               placeholder="Name...."
             />
             {errors.name && (
-              <p className="text-red-500 font-Satoshi">{errors.name.message}</p>
+              <p className="text-red-500 font-Roboto">{errors.name.message}</p>
             )}
           </div>
 
@@ -83,7 +83,7 @@ const Register = () => {
               placeholder="Email...."
             />
             {errors.email && (
-              <p className="text-red-500 font-Satoshi">{errors.email.message}</p>
+              <p className="text-red-500 font-Roboto">{errors.email.message}</p>
             )}
           </div>
 
@@ -99,7 +99,7 @@ const Register = () => {
               placeholder="Password...."
             />
             {errors.password && (
-              <p className="text-red-500 font-Satoshi">{errors.password.message}</p>
+              <p className="text-red-500 font-Roboto">{errors.password.message}</p>
             )}
           </div>
 
@@ -120,13 +120,13 @@ const Register = () => {
         {/* Divider */}
         <div className="w-[90%] flex gap-x-2 items-center">
           <div className="h-[1.5px] w-full bg-sky-400"></div>
-          <h1 className="font-Satoshi text-2xl">Or</h1>
+          <h1 className="font-Roboto text-2xl">Or</h1>
           <div className="h-[1.5px] w-full bg-sky-400"></div>
         </div>
 
         {/* Google Login */}
         <div className="flex flex-col items-center gap-4">
-          <h1 className="font-Helvetica text-2xl lg:text-xl">Register with</h1>
+          <h1 className="font-Poppins text-2xl lg:text-xl">Register with</h1>
           <GoogleLogin
             onSuccess={handleGoogleSuccess}
             onError={handleGoogleError}
@@ -135,12 +135,12 @@ const Register = () => {
 
         {/* Already have an account */}
         <div className="flex w-[90%] gap-x-3 lg:gap-x-10 justify-center">
-          <h1 className="font-Helvetica text-lg lg:text-xl">
+          <h1 className="font-Poppins text-lg lg:text-xl">
             Already have an account?
           </h1>
           <button
             onClick={() => navigate("/login")}
-            className="font-Satoshi text-xl text-sky-500 cursor-pointer"
+            className="font-Roboto text-xl text-sky-500 cursor-pointer"
           >
             Login
           </button>
@@ -148,7 +148,7 @@ const Register = () => {
 
         {/* Terms and privacy */}
         <div>
-          <p className="text-center font-Satoshi text-lg">
+          <p className="text-center font-Roboto text-lg">
             By signing up, you agree to our{" "}
             <span className="text-sky-500">Terms of Service</span> and{" "}
             <span className="text-sky-500">Privacy Policy</span>

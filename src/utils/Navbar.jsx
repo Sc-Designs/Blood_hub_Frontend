@@ -28,7 +28,7 @@ const Navbar = ({ field }) => {
   }
   return (
     <div className="w-full pr-5 lg:pr-20 py-4 flex justify-end backdrop-blur-sm fixed top-0 z-40">
-      <div className="hidden lg:flex gap-10 text-xl font-Satoshi font-medium cursor-pointer text-white">
+      <div className="hidden lg:flex gap-10 text-xl font-inter font-medium cursor-pointer text-white">
         {field.map((item, index) => {
           if (item.name !== "Logout") {
             return (

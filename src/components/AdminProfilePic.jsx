@@ -22,7 +22,6 @@ const AdminProfilePic = ({ email, fn }) => {
       });
 
       fn(false);
-      console.log(res.data.Useradmin)
       setAdmin(res.data.Useradmin);
     } catch (err) {
       console.error(err);

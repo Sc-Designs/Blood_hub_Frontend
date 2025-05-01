@@ -50,7 +50,7 @@ const DonateForm = ({modal, modalfn, name, dataId}) => {
             {...register("postId")}
             type="hidden" value={dataId} />
             <input
-              className="text-xl font-Satoshi border-b-2 text-center outline-none"
+              className="text-xl font-Roboto border-b-2 text-center outline-none"
               type="text"
               value={user.name}
               id=""
@@ -59,7 +59,7 @@ const DonateForm = ({modal, modalfn, name, dataId}) => {
             <input {...register("donarId")} type="hidden" value={user._id} />
             <FaHandshakeSimple className="text-4xl" />
             <input
-              className="text-xl font-Satoshi border-b-2 text-center outline-none"
+              className="text-xl font-Roboto border-b-2 text-center outline-none"
               type="text"
               value={name}
               id=""
@@ -83,18 +83,18 @@ const DonateForm = ({modal, modalfn, name, dataId}) => {
             className="border-b-2 w-70 pb-2 focus:border-amber-500 text-center text-xl outline-none tracking-widest"
           />
           {errors.donarNumber && (
-            <p className="text-red-500 font-Satoshi">
+            <p className="text-red-500 font-Roboto">
               {errors.donarNumber.message}
             </p>
           )}
           <button
-            className="my-5 font-Helvetica text-xl tracking-wider transition-all duration-200 hover:-translate-y-2 bg-linear-to-b from-transparent from-10% to-green-400 rounded-md drop-shadow-xl/25 px-10 py-2"
+            className="my-5 font-Poppins text-xl tracking-wider transition-all duration-200 hover:-translate-y-2 bg-linear-to-b from-transparent from-10% to-green-400 rounded-md drop-shadow-xl/25 px-10 py-2"
             type="submit">
             <p className="drop-shadow-xl/50">Confirm</p>
           </button>
         </form>
-        <p className="text-xl font-Satoshi text-left flex flex-col lg:flex-row items-center gap-y-3 lg:items-start lg:gap-x-3 font-semibold">
-          <span className="bg-amber-500 px-2 py-1 text-black rounded-md text-center font-Helvetica">
+        <p className="text-xl font-Roboto text-left flex flex-col lg:flex-row items-center gap-y-3 lg:items-start lg:gap-x-3 font-semibold">
+          <span className="bg-amber-500 px-2 py-1 text-black rounded-md text-center font-Poppins">
             Please note:
           </span>{" "}
           Once you click 'Confirm', you will not be able to decline the

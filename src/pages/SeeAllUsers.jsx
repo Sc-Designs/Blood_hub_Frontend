@@ -50,7 +50,7 @@ const SeeAllUsers = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)} // <== NEW
             placeholder="Type Name... Or Email..."
-            className="px-4 py-3 lg:py-2 focus:border-b-2 border-zinc-500 font-Satoshi inline-block w-full outline-none text-xl"
+            className="px-4 py-3 lg:py-2 focus:border-b-2 border-zinc-500 font-Roboto inline-block w-full outline-none text-xl"
           />
         </div>
         <div className="flex flex-col lg:flex-row flex-wrap gap-y-5 lg:gap-x-10 lg:gap-y-10 mt-20">

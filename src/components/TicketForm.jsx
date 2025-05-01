@@ -64,10 +64,10 @@ const TicketForm = ({vari, fn}) => {
               })}
               type="text"
               placeholder="Title..."
-              className="ticket px-2 font-Satoshi py-2 block w-full bg-zinc-900 rounded-md border-2 border-zinc-900 focus:border-sky-400 outline-none "
+              className="ticket px-2 font-Roboto py-2 block w-full bg-zinc-900 rounded-md border-2 border-zinc-900 focus:border-sky-400 outline-none "
             />
             {errors.ticketTitle && (
-              <p className="text-red-500 font-Satoshi">
+              <p className="text-red-500 font-Roboto">
                 {errors.ticketTitle.message}
               </p>
             )}
@@ -86,16 +86,16 @@ const TicketForm = ({vari, fn}) => {
                 },
               })}
               placeholder="Description..."
-              className="desc px-2 font-Satoshi py-2 resize-none block w-full h-40 bg-zinc-900 rounded-md border-2 border-zinc-900 focus:border-sky-400 outline-none "></textarea>
+              className="desc px-2 font-Roboto py-2 resize-none block w-full h-40 bg-zinc-900 rounded-md border-2 border-zinc-900 focus:border-sky-400 outline-none "></textarea>
             {errors.description && (
-              <p className="text-red-500 font-Satoshi">
+              <p className="text-red-500 font-Roboto">
                 {errors.description.message}
               </p>
             )}
           </div>
           <button
           type='submit'
-          className="bg-sky-600 py-2 font-Helvetica uppercase tracking-widest rounded-md">
+          className="bg-sky-600 py-2 font-Poppins uppercase tracking-widest rounded-md">
             Confirm
           </button>
         </form>

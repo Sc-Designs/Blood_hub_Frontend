@@ -3,18 +3,27 @@
 @import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
 @font-face {
-    font-family: "Satoshi";
-    src: url(assets/66aa728085dec3390cb7f058_Satoshi-Variable.ttf);
+    font-family: "inter";
+    src: url(assets/Inter-VariableFont_opsz,wght.ttf);
 }
 @font-face {
-    font-family: "Helvetica";
-    src:url(assets/HelveticaNowDisplay-Black_20bf03d0.ttf) ;
+    font-family: "OpenSans";
+    src: url(assets/OpenSans-VariableFont_wdth,wght.ttf);
+}
+@font-face {
+    font-family: "Poppins";
+    src: url(assets/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: "Roboto";
+    src: url(assets/Roboto-VariableFont_wdth,wght.ttf);
 }
 
 @theme {
-    --font-Helvetica: "Helvetica";
-    --font-Satoshi: "Satoshi";
-    --animate-rotate-clock-wise: rotate-clock-wise 2s linear infinite;
+    --font-inter: "inter";
+    --font-OpenSans: "OpenSans";
+    --font-Poppins: "Poppins";
+    --font-Roboto: "Roboto";
 }
 
 @keyframes rotate-clock-wise {
@@ -53,6 +62,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: grayscale(0.55);
     /* background: #63636353; */
 }
 input[type="number"]::-webkit-inner-spin-button,

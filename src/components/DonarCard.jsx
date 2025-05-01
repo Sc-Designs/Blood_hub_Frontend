@@ -19,16 +19,16 @@ const DonarCard = ({data, btn, fn}) => {
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 className="font-Helvetica text-2xl">
+          <h1 className="font-Poppins text-2xl">
             Name: {data.reciventId.name}
           </h1>
         </div>
-        <h4 className="font-Satoshi text-2xl">RQ : {data.bloodType}</h4>
-        <h4 className="font-Satoshi text-2xl">Date : {data.date}</h4>
-        <h4 className="font-Satoshi text-2xl">Time : {data.time}</h4>
+        <h4 className="font-Roboto text-2xl">RQ : {data.bloodType}</h4>
+        <h4 className="font-Roboto text-2xl">Date : {data.date}</h4>
+        <h4 className="font-Roboto text-2xl">Time : {data.time}</h4>
         <button
           onClick={() => fn(true)}
-          className="bg-linear-to-t from-zinc-800 from-10% rounded-md drop-shadow-xl/25 to-red-800 py-4 font-Helvetica tracking-widest text-2xl shadow-[0_0px_35px_rgba(255,0,0,0.3)] hover:-translate-y-2 transition-all duration-200">
+          className="bg-linear-to-t from-zinc-800 from-10% rounded-md drop-shadow-xl/25 to-red-800 py-4 font-Poppins tracking-widest text-2xl shadow-[0_0px_35px_rgba(255,0,0,0.3)] hover:-translate-y-2 transition-all duration-200">
           Donate
         </button>
       </div>

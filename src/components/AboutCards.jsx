@@ -11,10 +11,10 @@ const AboutCards = ({src,name,role,para}) => {
         />
       </div>
       <div className="flex flex-col gap-y-2 w-full lg:w-2/4 lg:gap-y-5">
-        <h1 className="text-3xl font-bold font-Helvetica">{name}</h1>
-        <h1 className="text-2xl font-semibold font-Satoshi">Role: {role}</h1>
-        <h1 className="text-2xl font-semibold font-Satoshi">Department: BCA </h1>
-        <h1 className="text-2xl font-semibold font-Satoshi">
+        <h1 className="text-3xl font-bold font-Poppins">{name}</h1>
+        <h1 className="text-2xl font-semibold font-Roboto">Role: {role}</h1>
+        <h1 className="text-2xl font-semibold font-Roboto">Department: BCA </h1>
+        <h1 className="text-2xl font-semibold font-Roboto">
           College : ABS Accademy Science, Technology & Management
         </h1>
         <p className="text-xl text-gray-300">{para}</p>

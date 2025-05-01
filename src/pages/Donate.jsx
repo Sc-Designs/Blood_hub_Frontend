@@ -42,7 +42,6 @@ const Donate = () => {
       const sorted = [...data].sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
-      console.log("New Post : " + sorted);
       setDonatePost(sorted);
       SetPost(sorted);
     });

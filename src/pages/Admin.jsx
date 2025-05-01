@@ -70,14 +70,14 @@ const Admin = () => {
           </div>
         </div>
         <div className="flex flex-col items-center">
-          <h1 className="font-Satoshi text-3xl">Suvam Chakraborti</h1>
-          <h1 className="font-Helvetica text-xl text-zinc-400 opacity-70">
+          <h1 className="font-Roboto text-3xl">Suvam Chakraborti</h1>
+          <h1 className="font-Poppins text-xl text-zinc-400 opacity-70">
             nfgaming4523@gmail.com
           </h1>
         </div>
         <button
         onClick={()=> serverHandel()}
-        className="bg-[#0f172a] cursor-pointer w-fit text-white px-6 py-3 rounded-md font-Satoshi font-semibold text-2xl hover:bg-[#0f172a]/90 transition-all duration-300">
+        className="bg-[#0f172a] cursor-pointer w-fit text-white px-6 py-3 rounded-md font-Roboto font-semibold text-2xl hover:bg-[#0f172a]/90 transition-all duration-300">
           Server Switch :{" "}
           {adminDets.serverOnOff === true ? (
             <span className="text-green-400">ON</span>

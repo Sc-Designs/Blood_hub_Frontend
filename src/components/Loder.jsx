@@ -51,7 +51,7 @@ const colors = [
 const Loder = () => {
   return (
     <motion.div
-      className="fixed font-Satoshi top-0 left-0 w-full h-screen z-[999] bg-black flex items-center justify-center text-white text-6xl lg:text-9xl"
+      className="fixed font-Roboto top-0 left-0 w-full h-screen z-[999] bg-black flex items-center justify-center text-white text-6xl lg:text-9xl"
       variants={parentVariants}
       initial="initial"
       animate="animate"
