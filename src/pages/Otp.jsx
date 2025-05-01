@@ -76,10 +76,13 @@ const Otp = () => {
 
   return (
     <div className="w-full min-h-screen text-white bg-black flex justify-center items-center">
-      <div className="border-2 border-zinc-700 shadow-[0px_0px_40px_rgba(255,255,255,0.1)] rounded-lg px-8 py-13 flex flex-col gap-y-10 items-center">
-        <h1 className="text-4xl mb-10 font-Poppins uppercase border-b-2 border-r-2 shadow-[15px_15px_35px_rgba(0,0,255,0.8)] border-blue-400 px-4 pb-2">
+      <div className="border-2 border-zinc-700 bg-[#121212] w-[90%] lg:w-[30%] rounded-lg px-8 py-13 flex flex-col gap-y-10 items-center">
+        <h1 className="text-4xl mb-2 bg-[#121212] font-Poppins uppercase border-b-2 border-r-2 shadow-[15px_15px_35px_rgba(0,0,255,0.8)] border-blue-400 px-4 pb-2">
           OTP Center
         </h1>
+        <p className="text-[#FF3B30] font-Roboto text-lg text-center">
+          Please Check Your mail inbox section or Spam section.
+        </p>
         <form className="flex flex-col gap-y-2 items-center lg:px-5">
           <div className="flex gap-x-5">
             {otp.map((digit, index) => (
@@ -90,17 +93,21 @@ const Otp = () => {
                 onChange={(e) => handleChange(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 ref={(el) => (inputsRef.current[index] = el)}
-                className="bg-zinc-900 text-2xl font-Roboto block rounded-2xl w-15 px-4 py-6 text-center outline-none transition-all duration-200 border-2 border-zinc-800 focus:border-sky-400"
+                className="bg-zinc-800 text-2xl font-Roboto block rounded-2xl w-15 px-4 py-6 text-center outline-none transition-all duration-200 border-2 border-zinc-800 focus:border-sky-400"
                 type="text"
               />
             ))}
           </div>
-          {error && <p className="text-red-400 font-Roboto">⚠️Current OTP is Not Acceptable!</p>}
+          {error && (
+            <p className="text-[#FF3B30] font-Roboto">
+              ⚠️Current OTP is Not Acceptable!
+            </p>
+          )}
           <input type="hidden" value={otpValue} />
           <button
             type="submit"
             onClick={otpSubmiter}
-            className="bg-sky-600 font-Poppins text-2xl py-4 px-26 mt-8 rounded-lg cursor-pointer transition-shadow duration-200 hover:shadow-[0px_0px_50px_rgba(0,208,255,0.85)]">
+            className="bg-sky-600 font-Poppins text-2xl py-4 px-26 mt-8 rounded-lg cursor-pointer transition-shadow duration-200">
             Confirm
           </button>
         </form>
@@ -112,7 +119,7 @@ const Otp = () => {
         ) : (
           <button
             onClick={handleResend}
-            className="bg-amber-600 font-Poppins text-2xl py-4 px-18 rounded-lg cursor-pointer transition-shadow duration-200 hover:shadow-[0px_0px_30px_rgba(255,128,0,0.85)]">
+            className="bg-[#ff754b] font-Poppins text-2xl py-4 px-18 rounded-lg cursor-pointer transition-shadow duration-200">
             Re-Send OTP
           </button>
         )}

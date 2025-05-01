@@ -41,7 +41,7 @@ const Form = ({ fn }) => {
               className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.number && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.number.message}
               </p>
             )}
@@ -62,7 +62,7 @@ const Form = ({ fn }) => {
               className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.emargencyNumber && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.emargencyNumber.message}
               </p>
             )}
@@ -86,7 +86,7 @@ const Form = ({ fn }) => {
               className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.dob && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.dob.message}
               </p>
             )}
@@ -107,7 +107,7 @@ const Form = ({ fn }) => {
               className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.weight && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.weight.message}
               </p>
             )}
@@ -130,7 +130,7 @@ const Form = ({ fn }) => {
               className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.height && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.height.message}
               </p>
             )}
@@ -151,7 +151,7 @@ const Form = ({ fn }) => {
               className="bg-zinc-800 w-full text-white text-xl font-Roboto py-2 px-4 rounded-lg border-2 border-zinc-700/70 focus:border-sky-400 transition-all duration-200 outline-none"
             />
             {errors.address && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.address.message}
               </p>
             )}
@@ -168,7 +168,7 @@ const Form = ({ fn }) => {
               <option value="Transgender">Transgender</option>
             </select>
             {errors.gender && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.gender.message}
               </p>
             )}
@@ -190,7 +190,7 @@ const Form = ({ fn }) => {
               <option value="O-">O-</option>
             </select>
             {errors.bloodGroup && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.bloodGroup.message}
               </p>
             )}

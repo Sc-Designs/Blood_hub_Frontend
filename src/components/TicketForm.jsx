@@ -67,7 +67,7 @@ const TicketForm = ({vari, fn}) => {
               className="ticket px-2 font-Roboto py-2 block w-full bg-zinc-900 rounded-md border-2 border-zinc-900 focus:border-sky-400 outline-none "
             />
             {errors.ticketTitle && (
-              <p className="text-red-500 font-Roboto">
+              <p className="text-[#FF3B30] font-Roboto">
                 {errors.ticketTitle.message}
               </p>
             )}
@@ -88,7 +88,7 @@ const TicketForm = ({vari, fn}) => {
               placeholder="Description..."
               className="desc px-2 font-Roboto py-2 resize-none block w-full h-40 bg-zinc-900 rounded-md border-2 border-zinc-900 focus:border-sky-400 outline-none "></textarea>
             {errors.description && (
-              <p className="text-red-500 font-Roboto">
+              <p className="text-[#FF3B30] font-Roboto">
                 {errors.description.message}
               </p>
             )}

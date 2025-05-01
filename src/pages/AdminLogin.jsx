@@ -52,7 +52,7 @@ const AdminLogin = () => {
             id="email"
           />
           {errors.email && (
-            <p className="text-red-500 font-Roboto">{errors.email.message}</p>
+            <p className="text-[#FF3B30] font-Roboto">{errors.email.message}</p>
           )}
         </div>
 
@@ -75,7 +75,7 @@ const AdminLogin = () => {
             id="password"
           />
           {errors.password && (
-            <p className="text-red-500 font-Roboto">
+            <p className="text-[#FF3B30] font-Roboto">
               {errors.password.message}
             </p>
           )}
@@ -83,7 +83,7 @@ const AdminLogin = () => {
 
         {/* Server Error Message */}
         {serverError && (
-          <p className="text-red-500 text-center">{serverError}</p>
+          <p className="text-[#FF3B30] text-center">{serverError}</p>
         )}
 
         {/* Submit Button */}

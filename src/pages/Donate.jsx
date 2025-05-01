@@ -79,7 +79,7 @@ const Donate = () => {
               ))
           ) : (
             <p className="text-xl flex gap-x-2 items-center">
-              <CiNoWaitingSign className="text-2xl text-red-500" />
+              <CiNoWaitingSign className="text-2xl text-[#FF3B30]" />
               No Request Found!
             </p>
           )}

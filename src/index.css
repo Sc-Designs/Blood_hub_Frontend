@@ -57,13 +57,11 @@ body{
 }
 #view_1{
      background-image: 
-    linear-gradient(to top,rgb(0, 0, 0), rgba(8, 10, 10, 0.5),rgba(201, 249, 245, 0.2), rgba(201, 249, 245, 0),rgba(201, 249, 245, 0),rgba(201, 249, 245, 0)),
-    url("/background.webp");
+    linear-gradient(to top,rgb(0, 0, 0), rgba(8, 10, 10, 0.5),rgba(64, 78, 77, 0.2), rgba(201, 249, 245, 0),rgba(201, 249, 245, 0),rgba(201, 249, 245, 0)),
+    url("/image/photo-1723394834190-5cf073c3a1ac.avif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: grayscale(0.55);
-    /* background: #63636353; */
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

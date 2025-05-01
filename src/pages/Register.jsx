@@ -46,28 +46,32 @@ const Register = () => {
 
   return (
     <div className="w-full min-h-screen text-white bg-black flex justify-center items-center">
-      <div className="border-2 border-zinc-800 flex flex-col gap-y-5 items-center w-[90%] lg:w-[40%] shadow-[0px_0px_30px_rgba(255,255,255,0.25)] rounded-md py-10 lg:py-5 px-5">
+      <div className="border-2 border-zinc-800 flex flex-col gap-y-5 items-center w-[90%] lg:w-[40%] bg-[#121212] rounded-md py-10 lg:py-5 px-5">
         <h1 className="font-Poppins text-xl uppercase">
           Register Your Self Today
         </h1>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-[98%] py-5 flex flex-col gap-y-5 items-center"
-        >
+          className="w-[98%] py-5 flex flex-col gap-y-5 items-center">
           {/* Name input */}
           <div className="w-[90%]">
             <input
               {...register("name", {
                 required: "Name is required",
-                minLength: { value: 6, message: "Name must be at least 6 characters" },
+                minLength: {
+                  value: 6,
+                  message: "Name must be at least 6 characters",
+                },
               })}
               type="text"
-              className="bg-zinc-900 border border-zinc-900 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
+              className="bg-zinc-800 border border-zinc-800 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
               placeholder="Name...."
             />
             {errors.name && (
-              <p className="text-red-500 font-Roboto">{errors.name.message}</p>
+              <p className="text-[#FF3B30] font-Roboto">
+                {errors.name.message}
+              </p>
             )}
           </div>
 
@@ -76,14 +80,19 @@ const Register = () => {
             <input
               {...register("email", {
                 required: "Email is required",
-                pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" },
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: "Invalid email address",
+                },
               })}
               type="email"
-              className="bg-zinc-900 border border-zinc-900 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
+              className="bg-zinc-800 border border-zinc-800 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
               placeholder="Email...."
             />
             {errors.email && (
-              <p className="text-red-500 font-Roboto">{errors.email.message}</p>
+              <p className="text-[#FF3B30] font-Roboto">
+                {errors.email.message}
+              </p>
             )}
           </div>
 
@@ -92,28 +101,32 @@ const Register = () => {
             <input
               {...register("password", {
                 required: "Password is required",
-                minLength: { value: 6, message: "Password must be at least 6 characters" },
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
               })}
               type="password"
-              className="bg-zinc-900 border border-zinc-900 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
+              className="bg-zinc-800 border border-zinc-800 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
               placeholder="Password...."
             />
             {errors.password && (
-              <p className="text-red-500 font-Roboto">{errors.password.message}</p>
+              <p className="text-[#FF3B30] font-Roboto">
+                {errors.password.message}
+              </p>
             )}
           </div>
 
           {/* Submit button */}
           <button
             type="submit"
-            className="bg-sky-600 text-2xl py-2 w-[90%] rounded-md mt-5"
-          >
+            className="bg-sky-600 text-2xl py-2 w-[90%] rounded-md mt-5 cursor-pointer">
             Confirm
           </button>
 
           {/* Server error */}
           {serverError && (
-            <p className="text-red-500 text-center">{serverError}</p>
+            <p className="text-[#FF3B30] text-center">{serverError}</p>
           )}
         </form>
 
@@ -140,8 +153,7 @@ const Register = () => {
           </h1>
           <button
             onClick={() => navigate("/login")}
-            className="font-Roboto text-xl text-sky-500 cursor-pointer"
-          >
+            className="font-Roboto text-xl text-sky-500 cursor-pointer">
             Login
           </button>
         </div>

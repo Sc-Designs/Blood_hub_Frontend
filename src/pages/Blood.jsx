@@ -31,7 +31,7 @@ const Blood = () => {
 
   return (
     <Animate>
-      <div className="w-full min-h-screen bg-black text-white pt-20 pb-4">
+      <div className="w-full min-h-screen bg-[#000] text-white pt-20 pb-4">
         <Navbar
           field={[
             { link: "/users/profile", name: "Profile" },
@@ -60,7 +60,7 @@ const Blood = () => {
             ))
           ) : (
             <p className="text-xl flex gap-x-2 items-center">
-              <CiNoWaitingSign className="text-2xl text-red-500" />
+              <CiNoWaitingSign className="text-2xl text-[#FF3B30]" />
               No Request Found!
             </p>
           )}

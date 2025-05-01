@@ -46,10 +46,10 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-zinc-900/70 flex justify-center items-center text-white">
+    <div className="w-full h-screen bg-zinc-black flex justify-center items-center text-white">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 w-[90%] lg:w-[40%] border-2 border-zinc-800 shadow-[0px_0px_30px_rgba(255,255,255,0.25)] px-5 py-10 rounded-lg">
+        className="flex flex-col gap-4 w-[90%] lg:w-[30%] bg-[#121212] border-2 border-zinc-800 px-5 py-10 rounded-lg">
         <h1 className="text-3xl font-Poppins text-center uppercase">
           Login Now
         </h1>
@@ -63,13 +63,13 @@ const Login = () => {
                 message: "Invalid email address",
               },
             })}
-            className="font-Roboto mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-900 bg-zinc-900 p-2 rounded w-full"
+            className="font-Roboto mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-800 bg-zinc-800 p-2 rounded w-full placeholder:text-[#A1A1AA]"
             placeholder="Enter your email..."
             type="email"
             id="email"
           />
           {errors.email && (
-            <p className="text-red-500 font-Roboto">{errors.email.message}</p>
+            <p className="text-[#FF3B30] font-Roboto">{errors.email.message}</p>
           )}
         </div>
 
@@ -82,25 +82,25 @@ const Login = () => {
                 message: "Password must be at least 6 characters",
               },
             })}
-            className="font-Roboto mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-900 bg-zinc-900 p-2 rounded w-full"
+            className="font-Roboto mt-2 outline-none focus:border-sky-400 transition-all duration-200 border-2 border-zinc-800 bg-zinc-800 p-2 rounded w-full"
             placeholder="Enter your password..."
             type="password"
             id="password"
           />
           {errors.password && (
-            <p className="text-red-500 font-Roboto">
+            <p className="text-[#FF3B30] font-Roboto">
               {errors.password.message}
             </p>
           )}
         </div>
 
         {serverError && (
-          <p className="text-red-500 text-center">{serverError}</p>
+          <p className="text-[#FF3B30] text-center">{serverError}</p>
         )}
 
         <button
           type="submit"
-          className="w-full py-2 rounded-md text-xl bg-sky-600 mt-5">
+          className="w-full py-2 rounded-md text-xl bg-sky-600 mt-5 cursor-pointer">
           Login
         </button>
 
@@ -123,7 +123,7 @@ const Login = () => {
         </div>
 
         <div className="flex justify-center items-center gap-x-4">
-          <p className="text-lg">Login with</p>
+          <p className="text-lg ">Login with</p>
           <GoogleLogin
             onSuccess={handleLoginSuccess}
             onError={handleLoginError}

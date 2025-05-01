@@ -82,7 +82,7 @@ const Admin = () => {
           {adminDets.serverOnOff === true ? (
             <span className="text-green-400">ON</span>
           ) : (
-            <span className="text-red-400">OFF</span>
+            <span className="text-[#FF3B30]">OFF</span>
           )}
         </button>
         <div className="border-2 w-full py-5 rounded-md px-4 flex flex-col gap-y-6">

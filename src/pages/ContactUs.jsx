@@ -41,7 +41,7 @@ const ContactUs = () => {
               id="name"
             />
             {errors.name && (
-              <p className="text-red-500">{errors.name.message}</p>
+              <p className="text-[#FF3B30]">{errors.name.message}</p>
             )}
           </div>
 
@@ -63,7 +63,7 @@ const ContactUs = () => {
               className="font-Roboto mt-2 border p-2 rounded w-full outline-none"
             />
             {errors.email && (
-              <p className="text-red-500">{errors.email.message}</p>
+              <p className="text-[#FF3B30]">{errors.email.message}</p>
             )}
           </div>
 
@@ -80,7 +80,7 @@ const ContactUs = () => {
                 required: "Message is required",
               })}></textarea>
             {errors.message && (
-              <p className="text-red-500">{errors.message.message}</p>
+              <p className="text-[#FF3B30]">{errors.message.message}</p>
             )}
           </div>
 

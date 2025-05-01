@@ -65,8 +65,8 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="w-full h-fit font-Poppins text-white flex items-center text-7xl text-center">
-          <p className="py-20 lg:py-40 lg:px-20 leading-20 italic opacity-55">
+        <div className="w-full h-fit font-Poppins text-white flex items-center text-6xl lg:text-7xl text-center">
+          <p className="py-20 px-6 lg:py-40 lg:px-20 leading-20 italic opacity-55">
             "The blood you donate today may be the gift of life for someone
             tomorrow."
           </p>

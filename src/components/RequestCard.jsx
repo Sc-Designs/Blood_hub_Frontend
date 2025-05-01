@@ -3,7 +3,7 @@ import { LiaUserClockSolid } from "react-icons/lia";
 import { PiConfettiBold } from "react-icons/pi";
 const RequestCard = ({data ,user}) => {
   return (
-    <div className="w-full lg:w-[32%] flex flex-col gap-y-4 border-2 border-gray-600 rounded-lg p-5 bg-linear-to-t from-[#8f00c776] to-transparent">
+    <div className="w-full lg:w-[32%] flex flex-col gap-y-4 border-2 border-gray-600 rounded-lg p-5 bg-[#121212]">
       <div className="flex flex-col gap-y-1">
         <div className="w-20 aspect-square overflow-hidden rounded-full">
           <img
@@ -12,19 +12,29 @@ const RequestCard = ({data ,user}) => {
             className="w-full h-full object-cover"
           />
         </div>
-        <h1 className="font-Poppins text-2xl">Name: {user.name}</h1>
-        <h1 className="font-Roboto text-xl text-gray-500">id : {user._id}</h1>
+        <h1 className="font-Poppins text-2xl font-semibold">
+          Name: <span className="text-[#FFD700]">{user.name}</span>
+        </h1>
+        <h1 className="font-Roboto text-xl">
+          ID : <span className="text-[#A1A1AA]">{user._id}</span>
+        </h1>
       </div>
-      <h4 className="font-Roboto text-2xl">RQ : {data.bloodType}</h4>
-      <h4 className="font-Roboto text-2xl">Date : {data.date}</h4>
-      <h4 className="font-Roboto text-2xl">Time : {data.time}</h4>
+      <h4 className="font-Roboto text-2xl">
+        REQUEST : <span className="text-[#FF4C58]">{data.bloodType}</span>
+      </h4>
+      <h4 className="font-Roboto text-2xl">
+        Date : <span className="text-[#3DE8E0]">{data.date}</span>
+      </h4>
+      <h4 className="font-Roboto text-2xl">
+        Time : <span className="text-[#3DE8E0]">{data.time}</span>
+      </h4>
       {data.status === "pending" ? (
-        <button className="bg-orange-400 shadow-[0_0px_70px_rgb(255,137,4,0.7)] py-4 font-Poppins text-2xl flex gap-x-2 items-center justify-center">
+        <button className="bg-orange-500 rounded-full cursor-no-drop py-4 font-Poppins text-2xl flex gap-x-2 items-center justify-center">
           <LiaUserClockSolid />
           Pending
         </button>
       ) : (
-        <button className="bg-green-400 shadow-[0_0px_70px_rgba(5,223,114,0.7)] py-4 font-Poppins text-2xl flex gap-x-2 items-center justify-center">
+        <button className="bg-[#2fb682] py-4 rounded-full cursor-no-drop font-Poppins text-2xl flex gap-x-2 items-center justify-center">
           <PiConfettiBold />
           Accepted
         </button>

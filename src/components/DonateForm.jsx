@@ -37,7 +37,7 @@ const DonateForm = ({modal, modalfn, name, dataId}) => {
     <div
       ref={ref}
       className="hidden w-full h-screen fixed top-0 left-0 backdrop-blur-3xl z-50">
-      <div className="w-[90%] lg:w-[50%] pt-20 pb-10 px-4 rounded-md bg-linear-to-b text-white border- border-[#7a01d188] drop-shadow-xl/10 from-[#28282895] to-[#7a01d188] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+      <div className="w-[90%] lg:w-[50%] pt-20 pb-10 px-4 rounded-md bg-[#2a2a2a] text-white  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
         <AiFillCloseCircle
           onClick={() => modalfn(false)}
           className="absolute top-2 right-2 text-4xl"
@@ -46,9 +46,7 @@ const DonateForm = ({modal, modalfn, name, dataId}) => {
           onSubmit={handleSubmit(onConfirm)}
           className="flex flex-col items-center gap-y-5">
           <div className="flex flex-col lg:flex-row lg:gap-x-4 gap-y-3 items-center justify-center">
-            <input
-            {...register("postId")}
-            type="hidden" value={dataId} />
+            <input {...register("postId")} type="hidden" value={dataId} />
             <input
               className="text-xl font-Roboto border-b-2 text-center outline-none"
               type="text"
@@ -83,20 +81,17 @@ const DonateForm = ({modal, modalfn, name, dataId}) => {
             className="border-b-2 w-70 pb-2 focus:border-amber-500 text-center text-xl outline-none tracking-widest"
           />
           {errors.donarNumber && (
-            <p className="text-red-500 font-Roboto">
+            <p className="text-[#FF3B30] font-Roboto">
               {errors.donarNumber.message}
             </p>
           )}
           <button
-            className="my-5 font-Poppins text-xl tracking-wider transition-all duration-200 hover:-translate-y-2 bg-linear-to-b from-transparent from-10% to-green-400 rounded-md drop-shadow-xl/25 px-10 py-2"
+            className="my-5 font-Poppins text-xl tracking-wider transition-all duration-200 hover:-translate-y-2 bg-[#5BC0EB] rounded-md drop-shadow-xl/25 px-10 py-2"
             type="submit">
             <p className="drop-shadow-xl/50">Confirm</p>
           </button>
         </form>
-        <p className="text-xl font-Roboto text-left flex flex-col lg:flex-row items-center gap-y-3 lg:items-start lg:gap-x-3 font-semibold">
-          <span className="bg-amber-500 px-2 py-1 text-black rounded-md text-center font-Poppins">
-            Please note:
-          </span>{" "}
+        <p className="text-xl font-Poppins text-center text-[#FFB347] font-semibold">
           Once you click 'Confirm', you will not be able to decline the
           proposal.
         </p>

@@ -48,9 +48,7 @@ const Profile = () => {
 
   return (
     <Animate>
-      {formModal &&
-        <Form fn={setFormModal} />
-      }
+      {formModal && <Form fn={setFormModal} />}
       <div className="bg-zinc-900/70 w-full h-fit text-white">
         <Navbar
           field={[
@@ -82,23 +80,22 @@ const Profile = () => {
             </div>
             <div className="flex flex-col items-center">
               <h3 className="text-3xl font-Roboto">{userDets.name}</h3>
-              <p className="text-gray-500 font-Poppins text-xl">
+              <p className="text-[#A1A1AA] font-Poppins text-xl">
                 {userDets.email}
               </p>
             </div>
           </div>
           <div className="border-2 border-gray-500 rounded-lg p-5 flex flex-col gap-y-1 ml-5 mr-5 lg:w-1/3">
-            <h3 className="text-3xl font-Poppins">Welcome Message to</h3>
+            <h3 className="text-3xl font-Poppins">👋🏽 Hey, Welcome</h3>
             <h3 className="text-3xl font-Poppins">{userDets.name}</h3>
             <p className="font-Roboto text-2xl pt-5">
               Welcome to{" "}
               <b>
-                <i>Blood_Hub</i>
+                <i className="text-[#FF4C58]">Blood_Hub</i>
               </b>{" "}
               ! ❤️
-              <br /> Thank you for joining us in saving lives. Whether you're
-              donating or searching for a donor, your support matters. Together,
-              we will make a better India. Enjoy your day, Thank You! 🤗
+              <br /> Thank you for saving lives. Every action counts. Together,
+              we build a stronger India. You’re a hero. Stay inspired! 🤗
             </p>
           </div>
         </div>
@@ -108,7 +105,7 @@ const Profile = () => {
             <Scales
               text={"Donate"}
               count={userDets.Donate.length}
-              para={userDets.Donate.length > 1 ? "Times": "Time"}
+              para={userDets.Donate.length > 1 ? "Times" : "Time"}
             />
             <Scales
               text={"Blood Requests"}
@@ -119,14 +116,14 @@ const Profile = () => {
               <h3 className="text-4xl font-Poppins">Verified</h3>
               {userDets.verified && (
                 <p className="text-5xl font-Poppins flex gap-x-2 ">
-                  <MdVerified className="text-sky-400/80" />
+                  <MdVerified className="text-[#FFD700]" />
                   <span className="font-Roboto text-4xl"> Yes</span>
                 </p>
               )}
             </div>
-            <div className="flex flex-col items-start gap-y-3">
+            <div className="flex flex-col items-start lg:items-center gap-y-3">
               <h3 className="text-4xl font-Poppins">Blood Group</h3>
-              <p className="text-5xl font-Poppins flex gap-x-2 text-red-400/80">
+              <p className="text-5xl font-Poppins flex gap-x-2 text-[#FF3B30]">
                 {userDets.bloodgroup}
               </p>
             </div>

@@ -43,7 +43,7 @@ const AddRequest = () => {
       </h1>
       <button
         onClick={() => setMortal(true)}
-        className="font-Roboto text-3xl bg-linear-to-b from-10% from-red-300/60 to-red-500/90 py-4 rounded-2xl lg:px-10 lg:py-2 lg:rounded-xl lg:font-semibold">
+        className="font-OpenSans text-3xl bg-[#6A0DAD] py-4 rounded-2xl lg:px-10 lg:py-2 lg:rounded-xl lg:font-semibold">
         Add Request
       </button>
       <div
@@ -77,10 +77,10 @@ const AddRequest = () => {
             </select>
 
             {errors.number && (
-              <p className="text-red-500 text-xl font-Roboto">
+              <p className="text-[#FF3B30] text-xl font-Roboto">
                 {errors.number.type === "minLength"
-                  ? "Number must be exactly 10 digits"
-                  : "Phone number is required"}
+                  ? "Phone number is required"
+                  : "Number must be exactly 10 digits"}
               </p>
             )}
 
@@ -88,17 +88,21 @@ const AddRequest = () => {
               id="number"
               type="number"
               placeholder="Enter Number"
-              {...register("number", { required: true, minLength: 10 })}
+              {...register("number", {
+                required: true,
+                minLength: 10,
+                maxLength: 10,
+              })}
               maxLength={10}
               className="bg-zinc-800 w-full text-white text-xl font-Roboto py-4 px-4 rounded-lg border-2 border-gray-500 outline-none tracking-widest"
             />
             <button
               type="submit"
-              className="bg-zinc-800 text-white text-3xl font-Poppins py-4 px-4 lg:px-10 lg:py-2 rounded-lg border-2 border-gray-500 outline-none">
+              className="bg-[#31beb7] text-white text-3xl font-Poppins py-4 px-4 lg:px-10 lg:py-2 rounded-lg outline-none">
               Confirm
             </button>
           </form>
-          <p className="text-gray-500 text-xl font-Roboto text-center">
+          <p className="text-[#FFB347] text-xl font-Roboto text-center">
             By clicking confirm, you agree to our terms and conditions.
             <br /> Thank you for your request! We will notify you when we find a
             match for you.
