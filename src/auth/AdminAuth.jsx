@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminAxios from "../config/AdminAxios";
 import { AdminContext } from "../context/admin.context";
+import Loader from "../components/Loader";
 
 const AdminAuth = ({ children }) => {
   const [isAdminLoading, setIsAdminLoading] = useState(true);
@@ -38,7 +39,7 @@ const AdminAuth = ({ children }) => {
   if (isAdminLoading) {
     return (
       <div className="flex justify-center items-center h-screen bg-gray-900 text-white text-2xl">
-        <h1>Admin Data Loading...</h1>
+        <Loader size={200} center />
       </div>
     );
   }
