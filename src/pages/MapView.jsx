@@ -3,6 +3,7 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import RoutingMachine from "../components/RoutingMachine";
 import { sendMessage, receiveMessage, removeListener } from "../config/Socket";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const MapView = () => {
   const { id } = useParams();
@@ -15,7 +16,6 @@ const MapView = () => {
     latitude: null,
     longitude: null,
   });
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     sendMessage("join-room", id);
@@ -63,8 +63,7 @@ const MapView = () => {
           sendMessage("share-location", { id, location: coords });
         },
         (err) => {
-          console.error("❌ Location error:", err.message);
-          setError("Error retrieving location: " + err.message);
+          toast.error("Error retrieving location.");
         },
         {
           enableHighAccuracy: true,
@@ -73,7 +72,7 @@ const MapView = () => {
         }
       );
     } else {
-      setError("Geolocation is not supported by your browser");
+      toast.error("Geolocation is not supported by your browser");
     }
 
     return () => {
@@ -90,14 +89,6 @@ const MapView = () => {
     lat: partnerLocation.latitude,
     lng: partnerLocation.longitude,
   };
-
-  if (error) {
-    return (
-      <div className="text-white flex items-center justify-center w-full h-screen">
-        Error: {error}
-      </div>
-    );
-  }
 
   if (location.latitude === null) {
     return (

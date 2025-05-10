@@ -4,6 +4,7 @@ import { UserContext } from "../context/user.context";
 import { CgClose } from "react-icons/cg";
 import Cropper from "react-cropper";
 import "react-cropper/node_modules/cropperjs/dist/cropper.css";
+import { toast } from "react-toastify";
 
 const UploadForm = ({ email, fn }) => {
   const [file, setFile] = useState(null);
@@ -52,9 +53,9 @@ const UploadForm = ({ email, fn }) => {
 
         fn(false);
         setUser(res.data.user);
+        toast.success("📸 Added successfully.");
       } catch (err) {
-        console.error(err);
-        alert("Upload failed");
+        toast.error("❌ Sommething went wrong!");
       }
     });
   };
@@ -63,7 +64,7 @@ const UploadForm = ({ email, fn }) => {
     <div className="picModal w-full h-screen backdrop-blur-3xl z-50 px-4 fixed top-0 left-0">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col absolute w-[90%] lg:w-[40%] rounded-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-y-4 bg-linear-to-b from-transparent to-[#67007ee8] shadow-[0px_10px_100px_rgba(255,255,255,0.5)] px-4 py-12">
+        className="flex flex-col absolute w-[90%] lg:w-[40%] rounded-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-y-4 bg-zinc-700/70 shadow-[0px_10px_100px_rgba(255,255,255,0.5)] px-4 py-12">
         <CgClose
           onClick={() => fn(false)}
           className="absolute top-5 right-5 text-2xl cursor-pointer"

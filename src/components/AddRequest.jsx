@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { CgCloseR } from "react-icons/cg";
 import {sendMessage} from "../config/Socket";
+import { toast } from 'react-toastify';
 const AddRequest = () => {
   const [Mortal, setMortal] = useState(false);
   const ref = useRef();
@@ -21,8 +22,10 @@ const AddRequest = () => {
     }
     fromHandeler();
     setMortal(false);
+    toast.success("🎉 Added successfully!");
     }catch(err){
         console.log(err);
+    toast.error("❌ Something error!");
     }
   }
     useEffect(() => {

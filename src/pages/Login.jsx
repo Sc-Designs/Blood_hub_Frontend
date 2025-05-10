@@ -4,6 +4,7 @@ import Axios from "../config/Axois";
 import { UserContext } from "../context/user.context";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {
@@ -14,19 +15,18 @@ const Login = () => {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const [serverError, setServerError] = useState("");
-
   const onSubmit = async (data) => {
     const { email, password } = data;
     try {
       const res = await Axios.post("/users/login", { email, password });
       setUser(res.data.user);
       navigate("/otp");
+      toast.success("🎉 OTP successfully.")
     } catch (error) {
-      setServerError(error.response?.data?.message || "Login failed");
+      toast.error("❌ Something went wrong!")
     }
   };
-
+  
   const handleLoginSuccess = async (credentialResponse) => {
     try {
       const res = await Axios.post("/google-auth/verify", {
@@ -34,15 +34,14 @@ const Login = () => {
       });
       setUser(res.data);
       navigate("/otp");
+      toast.success("🎉 OTP successfully.")
     } catch (err) {
-      setServerError("Google login failed. Please try again.");
-      console.error("Google login failed:", err);
+      toast.error("Google login failed. Please try again.");
     }
   };
 
   const handleLoginError = () => {
-    setServerError("Login failed. Please try again.");
-    console.log("Login Failed");
+    toast.error("❌ Something went wrong!");
   };
 
   return (
@@ -94,9 +93,6 @@ const Login = () => {
           )}
         </div>
 
-        {serverError && (
-          <p className="text-[#FF3B30] text-center">{serverError}</p>
-        )}
 
         <button
           type="submit"

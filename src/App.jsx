@@ -3,6 +3,7 @@ import AllRouter from "./Routes/Router";
 import { initializeSocket } from "./config/Socket";
 import Loder from "./components/Loder";
 import { AnimatePresence } from "framer-motion";
+import TostContainer from "./components/TostContainer";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ const App = () => {
         {loading && <Loder key="loader" />}
       </AnimatePresence>
       {!loading && <AllRouter />}
+      <TostContainer />
     </React.Fragment>
   );
 };

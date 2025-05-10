@@ -1,8 +1,10 @@
 import React from 'react'
 import Axios from "../config/Axois"
+import { toast } from 'react-toastify';
 const PdfDownloader = (id) => {
     const handleDownload = async () => {
-      const response = await Axios.post("/pdf/generatePdf", id, {
+      try {
+        const response = await Axios.post("/pdf/generatePdf", id, {
         responseType: "blob",
       });
 
@@ -13,6 +15,10 @@ const PdfDownloader = (id) => {
       a.download = "blood-request.pdf";
       a.click();
       URL.revokeObjectURL(url);
+      toast.success("📫 Downloaded successfully!")
+    } catch(err){
+      toast.error("❌ Something went wrong!")
+    }
     };
   return (
     <button

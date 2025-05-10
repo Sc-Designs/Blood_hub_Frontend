@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import {UserContext} from "../context/user.context"
 import Axios from "../config/Axois"
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Otp = () => {
     const { user } = useContext(UserContext);
@@ -9,7 +10,6 @@ const Otp = () => {
   const [timer, setTimer] = useState(60);
   const inputsRef = useRef([]);
   const intervalRef = useRef(null);
-  const [error , setError] = useState(false);
   const navigate =  useNavigate()
 
   useEffect(() => {
@@ -66,11 +66,11 @@ const Otp = () => {
             const res = await Axios.post("/users/otp-verify",{email: user.email, otpValue});
             localStorage.setItem("userToken", res.data.token);
             navigate("/users/profile")
-            setError(false)
+            toast.success("🎉 Login successfully.")
         }
-        else setError(true)
-    }catch(err){
-        console.log(err);
+        else toast.error("❌ OTP Must be 4 Digit.")
+      }catch(err){
+      toast.error("❌ Something went wrong!")
     }
   }
 
@@ -98,11 +98,6 @@ const Otp = () => {
               />
             ))}
           </div>
-          {error && (
-            <p className="text-[#FF3B30] font-Roboto">
-              ⚠️Current OTP is Not Acceptable!
-            </p>
-          )}
           <input type="hidden" value={otpValue} />
           <button
             type="submit"

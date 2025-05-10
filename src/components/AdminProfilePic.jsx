@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import Axios from "../config/Axois"
 import { AdminContext } from "../context/admin.context";
 import { CgClose } from "react-icons/cg";
+import { toast } from "react-toastify";
 
 const AdminProfilePic = ({ email, fn }) => {
   const [file, setFile] = useState(null);
@@ -23,9 +24,10 @@ const AdminProfilePic = ({ email, fn }) => {
 
       fn(false);
       setAdmin(res.data.Useradmin);
+      toast.success("📸 Uploading successfully!")
     } catch (err) {
       console.error(err);
-      alert("Upload failed");
+      toast.error("❌ Something went wrong! Please try again later.")
     }
   };
 

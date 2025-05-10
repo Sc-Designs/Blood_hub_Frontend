@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import {AdminContext} from "../context/admin.context"
 import AdminAxios from "../config/AdminAxios"
+import { toast } from 'react-toastify';
 const AdminLogin = () => {
     const {
       register,
@@ -13,7 +14,6 @@ const AdminLogin = () => {
     const { setAdmin } = useContext(AdminContext);
     const navigate = useNavigate();
 
-    const [serverError, setServerError] = useState("");
 
     const onSubmit = async (data) => {
       const { email, password } = data;
@@ -22,8 +22,9 @@ const AdminLogin = () => {
         setAdmin(res.data.admin);
         localStorage.setItem("adminToken",res.data.token)
         navigate("/admin")
+        toast.success("🎉 Login successfully.");
       } catch (error) {
-        setServerError(error.response?.data?.message || "Login failed");
+        toast.error("❌ Try again!");
       }
     };
   return (
@@ -80,11 +81,6 @@ const AdminLogin = () => {
             </p>
           )}
         </div>
-
-        {/* Server Error Message */}
-        {serverError && (
-          <p className="text-[#FF3B30] text-center">{serverError}</p>
-        )}
 
         {/* Submit Button */}
         <button type="submit" className="w-full py-3 bg-sky-500 mt-5">

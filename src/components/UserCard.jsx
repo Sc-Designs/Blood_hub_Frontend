@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import {receiveMessage, sendMessage} from "../config/Socket";
 import { AllUsersContext } from '../context/AllUsers.context';
+import { toast } from 'react-toastify';
 const UserCard = ({data}) => {
   const { setAllUsers } = useContext(AllUsersContext);
   const blockHandeler = (id)=>{
@@ -8,6 +9,7 @@ const UserCard = ({data}) => {
     receiveMessage("Update-blockUser", (data)=>{
       setAllUsers(data)
     });
+    toast.success("✅ Update change successfully.");
   }
   return (
     <div className="w-full py-5 px-4 flex flex-col gap-y-4 rounded-md border-2 text-white lg:w-100 lg:px-5 hover:-translate-y-2 transition-all duration-200">

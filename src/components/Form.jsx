@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Axios from "../config/Axois";
 import { UserContext } from "../context/user.context";
+import { toast } from "react-toastify";
 
 const Form = ({ fn }) => {
   const { setUser } = useContext(UserContext);
@@ -12,9 +13,14 @@ const Form = ({ fn }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const res = await Axios.post("/users/alldets", data);
+    try{
+      const res = await Axios.post("/users/alldets", data);
     setUser(res.data);
     fn(false);
+    toast.success("👏🏽 Update successfully!");
+  } catch (err){
+    toast.error("❌ Something went wrong!");
+  }
   };
 
   return (

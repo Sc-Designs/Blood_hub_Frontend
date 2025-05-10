@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { CgCloseR } from "react-icons/cg";
 import { useForm } from "react-hook-form"
 import AdminAxios from "../config/AdminAxios"
+import { toast } from 'react-toastify';
 const TicketForm = ({vari, fn}) => {
   const {
       register,
@@ -30,10 +31,11 @@ const TicketForm = ({vari, fn}) => {
           description,
         });
         fn(false);
+        toast.success("👏🏽 Send successfully");
         document.querySelector(".ticket").value = "" ;
         document.querySelector(".desc").value = "";
       } catch (error) {
-        console.error(error)
+        toast.error("❌ Something went wrong!");
       }
     };
   return (

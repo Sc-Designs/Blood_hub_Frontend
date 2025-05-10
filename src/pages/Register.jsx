@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user.context";
 import Axios from "../config/Axois";
 import { GoogleLogin } from "@react-oauth/google";
+import { toast } from "react-toastify";
+import AbandonWord from "../utils/AbandonWord"
 
 const Register = () => {
   const {
@@ -12,7 +14,6 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const { setUser } = useContext(UserContext);
-  const [serverError, setServerError] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -21,11 +22,13 @@ const Register = () => {
       const res = await Axios.post("/users/register", { name, email, password });
       setUser(res.data.user);
       navigate("/otp");
+      toast.success("🎉 Register successfully.");
+      toast.success("OTP send successfully.");
     } catch (error) {
-      setServerError(error.response?.data?.message || "Register failed");
+      toast.error("❌ Register failed.");
     }
   };
-
+  
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const res = await Axios.post("/google-auth/verify", {
@@ -33,15 +36,15 @@ const Register = () => {
       });
       setUser(res.data);
       navigate("/otp");
+      toast.success("🎉 Register successfully.");
+      toast.success("OTP send successfully.");
     } catch (err) {
-      setServerError("Google signup failed. Please try again.");
-      console.error("Google signup failed:", err);
+      toast.error("Google signup failed. Please try again.");
     }
   };
 
   const handleGoogleError = () => {
-    setServerError("Google signup failed. Please try again.");
-    console.log("Google signup Failed");
+    toast.error("Google signup failed. Please try again.");
   };
 
   return (
@@ -62,6 +65,15 @@ const Register = () => {
                 minLength: {
                   value: 6,
                   message: "Name must be at least 6 characters",
+                },
+                validate: (value) => {
+                  const lowerValue = value.toLowerCase();
+                  const hasBadWord = AbandonWord.some((bad) =>
+                    lowerValue.includes(bad)
+                  );
+                  return hasBadWord
+                    ? "Name contains restricted or offensive words!"
+                    : true;
                 },
               })}
               type="text"
@@ -123,11 +135,6 @@ const Register = () => {
             className="bg-sky-600 text-2xl py-2 w-[90%] rounded-md mt-5 cursor-pointer">
             Confirm
           </button>
-
-          {/* Server error */}
-          {serverError && (
-            <p className="text-[#FF3B30] text-center">{serverError}</p>
-          )}
         </form>
 
         {/* Divider */}
