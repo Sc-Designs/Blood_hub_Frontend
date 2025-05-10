@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Scales = ({text,count, para}) => {
+const Scales = ({text,count, para, center=true}) => {
   return (
-    <div className="flex flex-col items-start lg:items-center gap-y-3 w-fit">
+    <div className={`flex flex-col items-start ${center ? "lg:items-center": "lg:items-start"} gap-y-3 w-fit`}>
       <h3 className="text-4xl font-Poppins">{text}</h3>
       <p className="text-5xl font-Poppins text-[#5BC0EB]">
         {count}

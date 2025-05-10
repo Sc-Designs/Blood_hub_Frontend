@@ -76,8 +76,8 @@ const Admin = () => {
           </h1>
         </div>
         <button
-        onClick={()=> serverHandel()}
-        className="bg-[#0f172a] cursor-pointer w-fit text-white px-6 py-3 rounded-md font-Roboto font-semibold text-2xl hover:bg-[#0f172a]/90 transition-all duration-300">
+          onClick={() => serverHandel()}
+          className="bg-[#0f172a] cursor-pointer w-fit text-white px-6 py-3 rounded-md font-Roboto font-semibold text-2xl hover:bg-[#0f172a]/90 transition-all duration-300">
           Server Switch :{" "}
           {adminDets.serverOnOff === true ? (
             <span className="text-green-400">ON</span>
@@ -91,20 +91,23 @@ const Admin = () => {
               text={"User Count"}
               count={counts.UserCount}
               para={counts.UserCount > 1 ? "Users" : "User"}
+              center={false}
             />
           )}
           {counts && (
             <Scales
               text={"Request Count"}
               count={counts.requestCount}
-              para={counts.requestCount > 1 ? "Times": "Time"}
+              para={counts.requestCount > 1 ? "Times" : "Time"}
+              center={false}
             />
           )}
           {counts && (
             <Scales
               text={"Ticket Raises"}
               count={counts.ticketCounst}
-              para={counts.ticketCounst > 1 ? "Times":"Time"}
+              para={counts.ticketCounst > 1 ? "Times" : "Time"}
+              center={false}
             />
           )}
           <div className="flex flex-col gap-y-4 lg:flex-row lg:gap-x-4">
