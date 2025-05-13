@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user.context";
-import { useNavigate } from "react-router-dom";
 import Axios from "../config/Axois";
-import Loader from "../components/Loader"
+import Loader from "../components/Loader";
 
-const UserAuth = ({ children }) => {
+const UserAuth = () => {
   const { setUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -36,13 +36,15 @@ const UserAuth = ({ children }) => {
     fetchUser();
   }, [navigate, setUser]);
 
-  if (isLoading) return (
-    <div className="flex justify-center items-center h-screen bg-gray-900 text-white text-2xl">
-      <Loader size={200} center />
-    </div>
-  );
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-900 text-white text-2xl">
+        <Loader size={200} center />
+      </div>
+    );
+  }
 
-  return <>{children}</>;
+  return <Outlet />;
 };
 
 export default UserAuth;

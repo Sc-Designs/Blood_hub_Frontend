@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Otp = () => {
-    const { user } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [timer, setTimer] = useState(60);
   const inputsRef = useRef([]);
@@ -54,6 +54,7 @@ const Otp = () => {
         return prev - 1;
       });
     }, 1000);
+    console.log("Re-send");
     await Axios.post("/users/resendOtp", {email : user.email});
   };
 

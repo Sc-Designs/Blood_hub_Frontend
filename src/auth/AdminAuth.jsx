@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import AdminAxios from "../config/AdminAxios";
 import { AdminContext } from "../context/admin.context";
 import Loader from "../components/Loader";
 
-const AdminAuth = ({ children }) => {
+const AdminAuth = () => {
   const [isAdminLoading, setIsAdminLoading] = useState(true);
   const { setAdmin } = useContext(AdminContext);
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const AdminAuth = ({ children }) => {
     );
   }
 
-    return <>{children}</>
+  return <Outlet />;
 };
 
 export default AdminAuth;

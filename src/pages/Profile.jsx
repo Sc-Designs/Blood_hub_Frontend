@@ -12,6 +12,7 @@ import Animate from '../components/Animate';
 import { MdVerified } from "react-icons/md";
 import DonarStricks from '../components/DonarStricks';
 import Form from "../components/Form"
+import { AdminContext } from '../context/admin.context';
 
 const Profile = () => {
   const { user, setUser } = useContext(UserContext);
@@ -34,6 +35,7 @@ const Profile = () => {
       setUser(data)
       setUserDets(data)
     });
+
   },[])
 
   useEffect(()=>{
@@ -45,7 +47,6 @@ const Profile = () => {
       setFormModal(true);
     }
   }, [userDets?.number]);
-
   return (
     <Animate>
       {formModal && <Form fn={setFormModal} />}
@@ -63,7 +64,7 @@ const Profile = () => {
         <div className="flex flex-col pt-20 gap-y-7 items-center lg:flex-row lg:justify-center lg:gap-x-70">
           {picModal && <UploadForm fn={setPicModal} email={userDets.email} />}
           <div className="flex flex-col items-center">
-            <div className="w-62 h-62  rounded-full relative flex items-center justify-center">
+            <div className="w-62 h-62 rounded-full relative flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1544194215-541c2d3561a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-[-75px_10px]">
               {userDets?.profilepic && userDets?.pictype && (
                 <img
                   src={`data:${userDets.pictype};base64,${userDets.profilepic}`}
@@ -130,7 +131,11 @@ const Profile = () => {
           </div>
         </div>
         <div className="px-5 py-2 flex justify-center">
-          {userDets.block === true ? <BlockInterface /> : <AddRequest />}
+          {userDets.block === true ? (
+            <BlockInterface />
+          ) : (
+            <AddRequest time={userDets.delayTime} />
+          )}
         </div>
         <div className="px-5 py-2">
           <div className="border-2 border-gray-500 rounded-lg p-5 flex flex-col gap-y-5">
@@ -142,25 +147,33 @@ const Profile = () => {
                   ? "opacity-20 pointer-events-none"
                   : "opacity-100 pointer-events-auto"
               } p-2 border-2 border-gray-500 rounded-lg overflow-y-auto flex flex-col gap-y-5 lg:gap-y-2 lg:gap-x-2 lg:flex-row lg:flex-wrap`}>
-              {[...(userDets?.bloodRequest || [])]
-                .filter((item) => item?.date && item?.time)
-                .sort((a, b) => {
-                  const getDateTime = (item) =>
-                    new Date(
-                      `${item.date.split("/").reverse().join("-")} ${item.time}`
-                    );
-                  return getDateTime(b) - getDateTime(a);
-                })
-                .map((item, index) => (
-                  <Stricks
-                    key={index}
-                    bloodGroup={item.bloodType}
-                    date={item.date}
-                    time={item.time}
-                    status={item.status}
-                    id={item._id}
-                  />
-                ))}
+              {userDets?.bloodRequest.length !== 0 ? (
+                [...(userDets?.bloodRequest || [])]
+                  .filter((item) => item?.date && item?.time)
+                  .sort((a, b) => {
+                    const getDateTime = (item) =>
+                      new Date(
+                        `${item.date.split("/").reverse().join("-")} ${
+                          item.time
+                        }`
+                      );
+                    return getDateTime(b) - getDateTime(a);
+                  })
+                  .map((item, index) => (
+                    <Stricks
+                      key={index}
+                      bloodGroup={item.bloodType}
+                      date={item.date}
+                      time={item.time}
+                      status={item.status}
+                      id={item._id}
+                    />
+                  ))
+              ) : (
+                <p className="text-center w-full uppercase font-Poppins font-semibold text-amber-400">
+                  No Request Yeat.
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -174,24 +187,32 @@ const Profile = () => {
                   ? "opacity-20 pointer-events-none"
                   : "opacity-100 pointer-events-auto"
               } p-2 border-2 border-gray-500 rounded-lg overflow-y-auto flex flex-col gap-y-5 lg:gap-y-2 lg:gap-x-2 lg:flex-row lg:flex-wrap`}>
-              {[...(userDets?.Donate || [])]
-                .filter((item) => item?.date && item?.time)
-                .sort((a, b) => {
-                  const getDateTime = (item) =>
-                    new Date(
-                      `${item.date.split("/").reverse().join("-")} ${item.time}`
-                    );
-                  return getDateTime(b) - getDateTime(a);
-                })
-                .map((item, index) => (
-                  <DonarStricks
-                    key={index}
-                    bloodGroup={item.bloodType}
-                    date={item.date}
-                    time={item.time}
-                    id={item._id}
-                  />
-                ))}
+              {userDets?.Donate.length !== 0 ? (
+                [...(userDets?.Donate || [])]
+                  .filter((item) => item?.date && item?.time)
+                  .sort((a, b) => {
+                    const getDateTime = (item) =>
+                      new Date(
+                        `${item.date.split("/").reverse().join("-")} ${
+                          item.time
+                        }`
+                      );
+                    return getDateTime(b) - getDateTime(a);
+                  })
+                  .map((item, index) => (
+                    <DonarStricks
+                      key={index}
+                      bloodGroup={item.bloodType}
+                      date={item.date}
+                      time={item.time}
+                      id={item._id}
+                    />
+                  ))
+              ) : (
+                <p className="text-center w-full uppercase font-Poppins font-semibold text-amber-400">
+                  No Donation Yeat.
+                </p>
+              )}
             </div>
           </div>
         </div>

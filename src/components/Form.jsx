@@ -78,10 +78,10 @@ const Form = ({ fn }) => {
                 required: "Please Enter The DOB",
                 validate: (value) => {
                   const selectedDate = new Date(value);
-                  const minDate = new Date("1990-01-01");
+                  const minDate = new Date("1960-01-01");
                   const today = new Date();
                   if (selectedDate < minDate) {
-                    return "DOB must be from 1990 or later";
+                    return "DOB must be from 1960 or later";
                   }
                   if (selectedDate > today) {
                     return "DOB cannot be in the future";
@@ -151,6 +151,10 @@ const Form = ({ fn }) => {
                 maxLength: {
                   value: 30,
                   message: "Address must not exceed 30 characters",
+                },
+                pattern: {
+                  value: /^(?!\d+$)[a-zA-Z0-9\s]+$/,
+                  message: "Not Valid Address.",
                 },
               })}
               placeholder="Enter Your Address"

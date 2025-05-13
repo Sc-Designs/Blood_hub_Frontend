@@ -6,26 +6,34 @@ import Axios from "../config/Axois";
 import { GoogleLogin } from "@react-oauth/google";
 import { toast } from "react-toastify";
 import AbandonWord from "../utils/AbandonWord"
+import { TbEyeCancel } from "react-icons/tb";
+import { TbEyeCheck } from "react-icons/tb";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const [show, setshow] = useState(true);
 
   const onSubmit = async (data) => {
     const { name, email, password } = data;
     try {
       const res = await Axios.post("/users/register", { name, email, password });
-      setUser(res.data.user);
-      navigate("/otp");
-      toast.success("🎉 Register successfully.");
-      toast.success("OTP send successfully.");
+      if( res.status === 201 ){
+        setUser(res.data.user);
+        navigate("/otp");
+        toast.success("🎉 Register successfully.");
+        toast.success("OTP send successfully.");
+      } else {
+        toast.error("Something went wrong.");
+      }
     } catch (error) {
-      toast.error("❌ Register failed.");
+      toast.error("Something went wrong.");
     }
   };
   
@@ -36,8 +44,13 @@ const Register = () => {
       });
       setUser(res.data);
       navigate("/otp");
-      toast.success("🎉 Register successfully.");
-      toast.success("OTP send successfully.");
+      if(res.status === 201){
+        toast.success("🎉 Register successfully.");
+        toast.success("OTP send successfully.");
+      } else {
+        toast.success("🎉 Login successfully.");
+        toast.success("OTP send successfully.");
+      }
     } catch (err) {
       toast.error("Google signup failed. Please try again.");
     }
@@ -66,6 +79,10 @@ const Register = () => {
                   value: 6,
                   message: "Name must be at least 6 characters",
                 },
+                pattern: {
+                  value: /^[A-Za-z\s]+$/,
+                  message: "Name must contain only letters and spaces",
+                },
                 validate: (value) => {
                   const lowerValue = value.toLowerCase();
                   const hasBadWord = AbandonWord.some((bad) =>
@@ -76,6 +93,10 @@ const Register = () => {
                     : true;
                 },
               })}
+              onBlur={(e) => {
+                const trimmed = e.target.value.trim();
+                setValue("name", trimmed, { shouldValidate: true });
+              }}
               type="text"
               className="bg-zinc-800 border border-zinc-800 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
               placeholder="Name...."
@@ -93,10 +114,14 @@ const Register = () => {
               {...register("email", {
                 required: "Email is required",
                 pattern: {
-                  value: /^\S+@\S+$/i,
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                   message: "Invalid email address",
                 },
               })}
+              onBlur={(e) => {
+                const trimmed = e.target.value.trim();
+                setValue("email", trimmed, { shouldValidate: true });
+              }}
               type="email"
               className="bg-zinc-800 border border-zinc-800 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
               placeholder="Email...."
@@ -110,18 +135,35 @@ const Register = () => {
 
           {/* Password input */}
           <div className="w-[90%]">
-            <input
-              {...register("password", {
-                required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "Password must be at least 6 characters",
-                },
-              })}
-              type="password"
-              className="bg-zinc-800 border border-zinc-800 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
-              placeholder="Password...."
-            />
+            <div className="relative w-full">
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters",
+                  },
+                  pattern: {
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    message:
+                      "Password must be at least 8 characters and include uppercase, lowercase, number, and special character",
+                  },
+                })}
+                type={show ? "password" : "text"}
+                className="bg-zinc-800 border border-zinc-800 focus:border-sky-400 outline-none transition-all duration-200 px-2 py-2 block w-full rounded-md"
+                placeholder="Password...."
+              />
+              <button
+                onClick={() => setshow(!show)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-xl">
+                {show ? (
+                  <TbEyeCancel className="text-red-400/70" />
+                ) : (
+                  <TbEyeCheck className="text-green-400/70" />
+                )}
+              </button>
+            </div>
             {errors.password && (
               <p className="text-[#FF3B30] font-Roboto">
                 {errors.password.message}

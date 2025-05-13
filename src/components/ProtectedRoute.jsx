@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { AdminContext } from "../context/admin.context";
 import { receiveMessage } from "../config/Socket";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = () => {
   const { admin, setAdmin } = useContext(AdminContext);
   const location = useLocation();
   const [serverStatus, setServerStatus] = useState(admin?.serverOnOff);
@@ -13,7 +13,6 @@ const ProtectedRoute = ({ children }) => {
       setServerStatus(data.serverOnOff);
       setAdmin(data);
     });
-    
   }, [setAdmin]);
 
   useEffect(() => {
@@ -22,12 +21,11 @@ const ProtectedRoute = ({ children }) => {
     }
   }, [serverStatus, location.pathname]);
 
-  // If server is OFF, redirect to /maintanence
   if (serverStatus) {
     return <Navigate to="/maintanence" replace />;
   }
 
-  return <>{children}</>;
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

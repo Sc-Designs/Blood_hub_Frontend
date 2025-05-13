@@ -8,7 +8,7 @@ export const initializeSocket = () => {
     socketInstance = io(import.meta.env.VITE_BASE_URL, {
       transports: ["websocket"],
       auth: {
-        userToken: localStorage.getItem("userToken"), // optional auth
+        userToken: localStorage.getItem("userToken") || localStorage.getItem("adminToken"), // optional auth
       },
     });
 

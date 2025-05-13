@@ -18,37 +18,39 @@ import Otp from "../pages/Otp";
 import MapView from "../pages/MapView";
 import Register from "../pages/Register";
 import TicketRaiser from "../pages/TicketRaiser";
+import ForgetPassword from "../pages/ForgetPassword";
 
 const AllRouter = () => {
   return (
     <BrowserRouter>
           <Routes>
           <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminAuth><Admin /></AdminAuth>}/>
-          <Route path="/ticket-raiser" element={<AdminAuth><TicketRaiser /></AdminAuth>}/>
-          <Route path="/allUsers" element={<AdminAuth><SeeAllUsers /></AdminAuth>}/>
+          
+          <Route element={<AdminAuth/>}>
+          <Route path="/admin" element={<Admin />}/>
+          <Route path="/ticket-raiser" element={<TicketRaiser />}/>
+          <Route path="/allUsers" element={<SeeAllUsers />}/>
+          </Route>
+
           <Route path="/maintanence" element={<Maintanence />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forget-password" element={<ForgetPassword />}/>
           <Route path="/otp" element={<Otp />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
-        <Route
-          path="/*"
-          element={
-            <ProtectedRoute>
-              <UserAuth>
-                <Routes>
+
+          <Route element={<ProtectedRoute/>}>
+          <Route element={<UserAuth/>} >
                   <Route path="/users/profile" element={<Profile />} />
                   <Route path="/map/:id" element={<MapView />} />
                   <Route path="/users/contactUs" element={<ContactUs />} />
                   <Route path="/reciver/blood" element={<Blood />} />
                   <Route path="/donate/request-list" element={<Donate />} />
-                </Routes>
-              </UserAuth>
-            </ProtectedRoute>
-          }
-        />
+          </Route>
+        </Route>
+
+        <Route path="*" element={<div>404 Not Found!</div>}/>
       </Routes>
     </BrowserRouter>
   );
