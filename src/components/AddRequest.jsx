@@ -123,7 +123,9 @@ const AddRequest = ({time}) => {
                   <option value="O+">O+</option>
                   <option value="O-">O-</option>
                 </select>
-
+                {errors.bloodGroup && 
+                <p className="text-[#FF3B30] text-xl font-Roboto">Enter Valid Blood Group.</p>
+                }
                 {errors.number && (
                   <p className="text-[#FF3B30] text-xl font-Roboto">
                     {errors.number.type === "minLength"

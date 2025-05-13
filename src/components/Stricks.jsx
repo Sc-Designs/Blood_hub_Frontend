@@ -3,18 +3,19 @@ import { receiveMessage, sendMessage } from '../config/Socket';
 import { UserContext } from '../context/user.context';
 import { useNavigate } from 'react-router-dom';
 import PdfDownloader from './PdfDownloader';
+import { toast } from 'react-toastify';
 const Stricks = ({bloodGroup, date, time, status, id}) => {
   const {setUser} = useContext(UserContext);
   const navigator = useNavigate()
   const handelDelete = (id)=>{
     sendMessage("delete-Post",id);
+    toast.success("Delete successfully.")
   }
   useEffect(() => {
-    const handleUpdate = async (data) => {
+    receiveMessage("update-Post", async (data) => {
       await setUser(data);
-    };
-
-    receiveMessage("update-Post", handleUpdate);
+      console.log(data);
+    });
   }, []);
 
   return (
