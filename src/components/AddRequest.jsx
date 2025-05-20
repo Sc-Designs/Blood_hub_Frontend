@@ -20,7 +20,8 @@ const AddRequest = ({time}) => {
   const [Time, setTime] = useState("");
   const [date ,setDate] = useState("");
   const [allow, setAllow] = useState(true);
-  const [NextTime, setNextTime] = useState("")
+  const [NextTime, setNextTime] = useState("");
+  const [reqComing, setReqComing] = useState(false);
   
   const ref = useRef();
     const {
@@ -39,6 +40,7 @@ const AddRequest = ({time}) => {
     }
     fromHandeler();
     setMortal(false);
+    setReqComing(false);
     toast.success("🎉 Added successfully!");
     }catch(err){
         console.log(err);
@@ -48,7 +50,7 @@ const AddRequest = ({time}) => {
     useEffect(() => {
       if (!ref.current) return;
 
-      if (Mortal) {
+      if (Mortal === true && date && Time) {
         ref.current.classList.add("block");
         ref.current.classList.remove("hidden");
         sendMessage("seeAllowRequest", {date, Time});
@@ -56,7 +58,7 @@ const AddRequest = ({time}) => {
         ref.current.classList.remove("block");
         ref.current.classList.add("hidden");
       }
-    }, [Mortal]);
+    }, [Mortal, date, Time]);
 
     useEffect(()=>{
       const localTime = moment().format("hh:mm A");
@@ -71,7 +73,9 @@ const AddRequest = ({time}) => {
   useEffect(() => {
     receiveMessage("allowingResult",(data)=>{
       setAllow(data.result);
+      setReqComing(true);
       if(data.result === false){
+        setReqComing(true);
         const text = `${data.hours} : ${data.minutes}`;
         setNextTime(text);
       }
@@ -99,8 +103,10 @@ const AddRequest = ({time}) => {
             onClick={() => setMortal(false)}
             className="absolute top-5 right-5 text-5xl cursor-pointer z-50"
           />
-          {allow === true ? (
-            <>
+          {reqComing === false ? (
+            <p className='text-blue-500 text-center animate-pulse text-xl font-Poppins'>We are prepairing your form...</p>
+          ) : allow === true ? (
+              <>
               <form
                 className="flex flex-col gap-y-5 w-full"
                 onSubmit={handleSubmit(submitFrom)}>
@@ -110,7 +116,7 @@ const AddRequest = ({time}) => {
                     required: "Please select a blood group",
                     validate: (value) =>
                       value !== "default" ||
-                      "Please select a valid blood group",
+                    "Please select a valid blood group",
                   })}
                   className="bg-zinc-800 w-full text-white text-xl font-Roboto py-4 px-4 rounded-lg border-2 border-gray-500 outline-none">
                   <option value="default">Select Blood Group</option>
@@ -145,7 +151,7 @@ const AddRequest = ({time}) => {
                   })}
                   maxLength={10}
                   className="bg-zinc-800 w-full text-white text-xl font-Roboto py-4 px-4 rounded-lg border-2 border-gray-500 outline-none tracking-widest"
-                />
+                  />
                 <button
                   type="submit"
                   className="bg-[#31beb7] text-white text-3xl font-Poppins py-4 px-4 lg:px-10 lg:py-2 rounded-lg outline-none">
