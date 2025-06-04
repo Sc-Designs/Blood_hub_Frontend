@@ -19,6 +19,7 @@ import MapView from "../pages/MapView";
 import Register from "../pages/Register";
 import TicketRaiser from "../pages/TicketRaiser";
 import ForgetPassword from "../pages/ForgetPassword";
+import PageNotFound from "../pages/PageNotFound";
 
 const AllRouter = () => {
   return (
@@ -50,7 +51,7 @@ const AllRouter = () => {
           </Route>
         </Route>
 
-        <Route path="*" element={<div>404 Not Found!</div>}/>
+        <Route path="*" element={<PageNotFound />}/>
       </Routes>
     </BrowserRouter>
   );
