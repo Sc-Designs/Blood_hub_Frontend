@@ -27,7 +27,7 @@ const Home = () => {
             <div
               id="view_1"
               className="w-full h-screen px-2 flex flex-col items-center justify-center gap-y-20 lg:gap-y-4 text-white">
-              <h1 className="text-7xl lg:text-[7.5em] drop-shadow-[0px_0px_20px_rgba(0,0,0,0.9)] text-center lg:whitespace-nowrap font-Poppins font-bold tracking-tight">
+              <h1 className="text-7xl lg:text-[7.2em] drop-shadow-[0px_0px_20px_rgba(0,0,0,0.9)] text-center lg:whitespace-nowrap font-Poppins font-bold tracking-tight">
                 Welcome to <span className="italic">Blood_Hub</span>
               </h1>
               <Button
