@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import Navbar from '../utils/Navbar'
 import { PiGooglePhotosLogoFill } from "react-icons/pi";
 import Scales from '../components/Scales';
@@ -12,9 +12,9 @@ import Animate from '../components/Animate';
 import { MdVerified } from "react-icons/md";
 import DonarStricks from '../components/DonarStricks';
 import Form from "../components/Form"
-import { AdminContext } from '../context/admin.context';
 
 const Profile = () => {
+  const animateRef = useRef();
   const { user, setUser } = useContext(UserContext);
   const [userDets, setUserDets] = useState(user);
   const [picModal, setPicModal] = useState(false);
@@ -48,10 +48,11 @@ const Profile = () => {
     }
   }, [userDets?.number]);
   return (
-    <Animate>
+    <Animate ref={animateRef}>
       {formModal && <Form fn={setFormModal} />}
       <div className="bg-zinc-900/70 w-full h-fit text-white">
         <Navbar
+          animateRef={animateRef}
           field={[
             { link: "/", name: "Home" },
             { link: "/donate/request-list", name: "Donate" },
@@ -80,7 +81,7 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col items-center">
-              <h3 className="text-3xl font-Roboto">{userDets.name}</h3>
+              <h3 className="text-3xl font-Roboto">{userDets.name ? userDets.name : "Lodding..."}</h3>
               <p className="text-[#A1A1AA] font-Poppins text-xl">
                 {userDets.email}
               </p>
@@ -117,14 +118,14 @@ const Profile = () => {
               <h3 className="text-4xl font-Poppins">Verified</h3>
               {userDets.verified && (
                 <p className="text-5xl font-Poppins flex gap-x-2 ">
-                  <MdVerified className="text-[#FFD700]" />
+                  <MdVerified className="text-[#0091ff]" />
                   <span className="font-Roboto text-4xl"> Yes</span>
                 </p>
               )}
             </div>
             <div className="flex flex-col items-start lg:items-center gap-y-3">
               <h3 className="text-4xl font-Poppins">Blood Group</h3>
-              <p className="text-5xl font-Poppins flex gap-x-2 text-[#FF3B30]">
+              <p className="text-5xl font-Poppins flex gap-x-2 font-bold italic text-[#FF3B30]">
                 {userDets.bloodgroup}
               </p>
             </div>

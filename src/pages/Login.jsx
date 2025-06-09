@@ -91,6 +91,7 @@ const Login = () => {
               placeholder="Enter your password..."
               type={show ? "password" : "text"}
               id="password"
+              autoComplete="true"
             />
             <button
               onClick={() => setshow(!show)}

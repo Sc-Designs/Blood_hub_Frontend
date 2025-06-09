@@ -53,7 +53,7 @@ const SeeAllUsers = () => {
             className="px-4 py-3 lg:py-2 focus:border-b-2 border-zinc-500 font-Roboto inline-block w-full outline-none text-xl"
           />
         </div>
-        <div className="flex flex-col lg:flex-row flex-wrap gap-y-5 lg:gap-x-10 lg:gap-y-10 mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 mt-1">
           {filteredUsers.length > 0 ? (
             filteredUsers.map((item, index) => (
               <UserCard data={item} key={index} />

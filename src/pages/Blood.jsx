@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Navbar from "../utils/Navbar";
 import RequestCard from "../components/RequestCard";
 import { UserContext } from "../context/user.context";
@@ -6,6 +6,7 @@ import { CiNoWaitingSign } from "react-icons/ci";
 import Animate from "../components/Animate";
 
 const Blood = () => {
+  const animateRef = useRef();
   const { user } = useContext(UserContext);
   const [filterData, setFilterData] = useState("allRequest");
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -30,9 +31,10 @@ const Blood = () => {
   }, [filterData, user?.bloodRequest]);
 
   return (
-    <Animate>
+    <Animate ref={animateRef}>
       <div className="w-full min-h-screen bg-[#000] text-white pt-20 pb-4">
         <Navbar
+          animateRef={animateRef}
           field={[
             { link: "/users/profile", name: "Profile" },
             { link: "/", name: "Home" },

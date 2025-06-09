@@ -33,9 +33,9 @@ const AddRequest = ({time}) => {
 
   const submitFrom = (data)=>{
     try{
-      const {bloodGroup, number} = data;
+      const { bloodGroup, number, urgency } = data;
       const fromHandeler = async ()=> {
-      sendMessage("blood-request",{bloodGroup, number, date, Time});
+      sendMessage("blood-request", { bloodGroup, number, date, Time, urgency });
       reset();
     }
     fromHandeler();
@@ -87,7 +87,7 @@ const AddRequest = ({time}) => {
       <h1 className="font-Poppins text-5xl text-center lg:text-4xl">
         Add Blood Request
       </h1>
-      <p className="text-center text-sky-400 text-xl">
+      <p className="text-center text-sky-400 text-xl lg:text-2xl font-Poppins drop-shadow-[0px_0px_15px_rgba(0,100,200,0.9)] ">
         Delay Timer is {Delaytimer}
       </p>
       <button
@@ -104,9 +104,11 @@ const AddRequest = ({time}) => {
             className="absolute top-5 right-5 text-5xl cursor-pointer z-50"
           />
           {reqComing === false ? (
-            <p className='text-blue-500 text-center animate-pulse text-xl font-Poppins'>We are prepairing your form...</p>
+            <p className="text-blue-500 text-center animate-pulse text-xl font-Poppins">
+              We are prepairing your form...
+            </p>
           ) : allow === true ? (
-              <>
+            <>
               <form
                 className="flex flex-col gap-y-5 w-full"
                 onSubmit={handleSubmit(submitFrom)}>
@@ -116,7 +118,7 @@ const AddRequest = ({time}) => {
                     required: "Please select a blood group",
                     validate: (value) =>
                       value !== "default" ||
-                    "Please select a valid blood group",
+                      "Please select a valid blood group",
                   })}
                   className="bg-zinc-800 w-full text-white text-xl font-Roboto py-4 px-4 rounded-lg border-2 border-gray-500 outline-none">
                   <option value="default">Select Blood Group</option>
@@ -129,9 +131,11 @@ const AddRequest = ({time}) => {
                   <option value="O+">O+</option>
                   <option value="O-">O-</option>
                 </select>
-                {errors.bloodGroup && 
-                <p className="text-[#FF3B30] text-xl font-Roboto">Enter Valid Blood Group.</p>
-                }
+                {errors.bloodGroup && (
+                  <p className="text-[#FF3B30] text-xl font-Roboto">
+                    Enter Valid Blood Group.
+                  </p>
+                )}
                 {errors.number && (
                   <p className="text-[#FF3B30] text-xl font-Roboto">
                     {errors.number.type === "minLength"
@@ -151,7 +155,20 @@ const AddRequest = ({time}) => {
                   })}
                   maxLength={10}
                   className="bg-zinc-800 w-full text-white text-xl font-Roboto py-4 px-4 rounded-lg border-2 border-gray-500 outline-none tracking-widest"
-                  />
+                />
+                <select
+                  id="urgency"
+                  {...register("urgency", {
+                    required: "Please select the urgency level",
+                    validate: (value) =>
+                      value !== "default" || "Please select the urgency level",
+                  })}
+                  className="bg-zinc-800 w-full text-white text-xl font-Roboto py-4 px-4 rounded-lg border-2 border-gray-500 outline-none">
+                  <option value="default">Select urgency</option>
+                  <option value="high">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
                 <button
                   type="submit"
                   className="bg-[#31beb7] text-white text-3xl font-Poppins py-4 px-4 lg:px-10 lg:py-2 rounded-lg outline-none">

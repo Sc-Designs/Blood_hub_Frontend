@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Navbar from "../utils/Navbar"
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { LuMapPinCheck } from "react-icons/lu";
@@ -10,10 +10,12 @@ import Footer from '../components/Footer';
 import Animate from "../components/Animate";
 
 const Home = () => {
+  const animateRef = useRef();
   return (
-    <Animate>
+    <Animate ref={animateRef}>
       <div className="w-full min-h-[100vh] bg-black">
         <Navbar
+          animateRef={animateRef}
           field={[
             { link: "/users/profile", name: "Profile" },
             { link: "/donate/request-list", name: "Donate" },
@@ -94,8 +96,8 @@ const Home = () => {
           </h1>
           <Button
             navigating={"/users/profile"}
-            text={"Sign Up As a LifeSaver"}
-            val={true}
+            text={"<= 🔗Sign Up As a LifeSaver🔗 =>"}
+            val={false}
           />
         </div>
         <Footer />

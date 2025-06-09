@@ -133,6 +133,7 @@ const ForgetPassword = () => {
                   type={show ? "password" : "text"}
                   placeholder="New Password here..."
                   className="w-full px-2 h-full border-none outline-none"
+                  autoComplete='true'
                   ref={pass}
                   value={password}
                   onChange={(e) => setpassword(e.target.value.trim())}

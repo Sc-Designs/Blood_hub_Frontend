@@ -37,11 +37,11 @@
 
 body::-webkit-scrollbar{
     width: 6px;
-    background-color:#fff;
+    background-color:#000000;
 }
 
 body::-webkit-scrollbar-thumb{
-    background-color: rgb(0, 0, 0);
+    background-color: #ffffff;
 }
 body{
     background: #000000;
@@ -58,9 +58,9 @@ body{
 #view_1{
      background-image: 
     linear-gradient(to top,rgb(0, 0, 0), rgba(8, 10, 10, 0.5),rgba(64, 78, 77, 0.2), rgba(201, 249, 245, 0),rgba(201, 249, 245, 0),rgba(201, 249, 245, 0)),
-    url("/image/photo-1723394834190-5cf073c3a1ac.avif");
+    url("/image/Landing.webp");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
 }
 input[type="number"]::-webkit-inner-spin-button,
