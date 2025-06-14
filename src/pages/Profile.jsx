@@ -81,7 +81,7 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col items-center">
-              <h3 className="text-3xl font-Roboto">{userDets.name ? userDets.name : "Lodding..."}</h3>
+              <h3 className="text-3xl font-Roboto">{userDets.name ? userDets.name : <span>Lodding...</span>}</h3>
               <p className="text-[#A1A1AA] font-Poppins text-xl">
                 {userDets.email}
               </p>
