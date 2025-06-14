@@ -56,6 +56,7 @@ const UploadForm = ({ email, fn }) => {
         setUser(res.data.user);
         toast.success("📸 Added successfully.");
       } catch (err) {
+        console.log(err);
         toast.error("❌ Sommething went wrong!");
       }
     });
