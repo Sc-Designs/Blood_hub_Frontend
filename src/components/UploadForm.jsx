@@ -52,11 +52,9 @@ const UploadForm = ({ email, fn }) => {
         });
 
         fn(false);
-        console.log(res.data);
-        setUser(res.data.user);
+        setUser(res.data.cleanedUser);
         toast.success("📸 Added successfully.");
       } catch (err) {
-        console.log(err);
         toast.error("❌ Sommething went wrong!");
       }
     });
